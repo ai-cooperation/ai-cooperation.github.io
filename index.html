@@ -15,6 +15,7 @@
 <meta property="og:image" content="https://ai-cooperation.github.io/images/hero.png">
 <meta property="og:site_name" content="Cooperation">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:locale:alternate" content="en_US">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Cooperation — Human–AI Infrastructure">
@@ -53,72 +54,97 @@
 html{scroll-behavior:smooth}
 body{font-family:Inter,'Noto Sans TC',sans-serif;background:var(--bg);color:var(--white);line-height:1.8;overflow-x:hidden}
 
+/* i18n: hide inactive language */
+[data-lang="en"]{display:none}
+html[lang="en"] [data-lang="en"]{display:block}
+html[lang="en"] [data-lang="zh"]{display:none}
+/* inline elements */
+span[data-lang="en"],a[data-lang="en"]{display:none}
+html[lang="en"] span[data-lang="en"],html[lang="en"] a[data-lang="en"]{display:inline}
+html[lang="en"] span[data-lang="zh"],html[lang="en"] a[data-lang="zh"]{display:none}
+/* flex items stay flex */
+html[lang="en"] div.challenge-row[data-lang="en"],
+html[lang="en"] div.sandbox-row[data-lang="en"]{display:flex}
+
+/* LANG SWITCH */
+.lang-switch{display:flex;gap:2px;background:rgba(255,255,255,.06);border-radius:6px;padding:2px;margin-left:1rem}
+.lang-switch button{background:none;border:none;color:var(--gray);font-size:.75rem;padding:.3rem .7rem;border-radius:4px;cursor:pointer;font-family:inherit;letter-spacing:1px;transition:all .2s}
+.lang-switch button.active{background:rgba(74,158,255,.15);color:var(--blue)}
+
 /* NAV */
 nav{position:fixed;top:0;width:100%;z-index:100;padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center;transition:all .4s}
 nav.scrolled{background:rgba(12,15,20,.92);backdrop-filter:blur(20px);padding:1rem 3rem;border-bottom:1px solid var(--line)}
 .nav-logo{font-size:1.1rem;font-weight:600;color:var(--white);text-decoration:none;letter-spacing:2px;text-transform:uppercase;opacity:.9}
+.nav-right{display:flex;align-items:center;gap:0}
 .nav-links{display:flex;gap:2.5rem;list-style:none}
 .nav-links a{color:var(--gray);text-decoration:none;font-size:.85rem;letter-spacing:1px;transition:color .3s}
 .nav-links a:hover{color:var(--white)}
 .nav-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.3rem;cursor:pointer}
 
-/* HERO — full-screen background image */
+/* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 2rem;position:relative;background:url('images/hero.png') center/cover no-repeat}
-.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,20,.55) 0%,rgba(12,15,20,.7) 50%,rgba(12,15,20,.9) 100%)}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,20,.5) 0%,rgba(12,15,20,.65) 50%,rgba(12,15,20,.9) 100%)}
 .hero-content{position:relative;max-width:760px;padding:2rem 0}
 .hero-content .overline{font-size:.75rem;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:2rem;font-weight:500}
 .hero h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:300;line-height:1.4;margin-bottom:2rem;letter-spacing:.5px;text-shadow:0 2px 20px rgba(0,0,0,.4)}
 .hero h1 strong{font-weight:600;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero .hero-statement{font-size:1.1rem;color:rgba(255,255,255,.75);line-height:2;font-weight:300;text-shadow:0 1px 10px rgba(0,0,0,.3)}
-.hero .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.3);font-size:.75rem;letter-spacing:2px;animation:float 3s ease-in-out infinite}
+.hero .hero-sub{font-size:1.1rem;color:rgba(255,255,255,.75);line-height:2;font-weight:300;text-shadow:0 1px 10px rgba(0,0,0,.3)}
+.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.3);font-size:.75rem;letter-spacing:2px;animation:float 3s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
 
-/* VIDEO PLACEHOLDER */
+/* VIDEO SECTION */
 .video-section{padding:5rem 2rem;background:var(--bg2)}
-.video-placeholder{max-width:900px;margin:0 auto;height:450px;border-radius:16px;background:linear-gradient(135deg,var(--bg3),var(--bg));border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;position:relative;overflow:hidden}
-.video-placeholder::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,var(--blue-soft),transparent 70%);pointer-events:none}
-.play-btn{width:70px;height:70px;border-radius:50%;border:2px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;position:relative;transition:all .3s;cursor:default}
-.play-btn::after{content:"";width:0;height:0;border-style:solid;border-width:12px 0 12px 20px;border-color:transparent transparent transparent rgba(255,255,255,.4);margin-left:4px}
+.video-placeholder{max-width:900px;margin:0 auto;aspect-ratio:16/9;max-height:480px;border-radius:16px;overflow:hidden;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;cursor:default}
+.video-placeholder img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.video-placeholder .video-overlay{position:absolute;inset:0;background:rgba(12,15,20,.6);transition:background .3s}
+.video-placeholder:hover .video-overlay{background:rgba(12,15,20,.5)}
+/* fallback gradient for missing thumbnail */
+.video-placeholder.no-img{background:linear-gradient(135deg,#111827,#0c1929,#131028);border:1px solid var(--line)}
+.video-placeholder.no-img::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 40% 50%,rgba(74,158,255,.08),transparent 60%),radial-gradient(ellipse at 60% 50%,rgba(155,122,255,.06),transparent 50%);pointer-events:none}
+.play-btn{width:70px;height:70px;border-radius:50%;border:2px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;position:relative;z-index:2;transition:all .3s}
+.video-placeholder:hover .play-btn{border-color:rgba(255,255,255,.4);transform:scale(1.05)}
+.play-btn::after{content:"";width:0;height:0;border-style:solid;border-width:12px 0 12px 20px;border-color:transparent transparent transparent rgba(255,255,255,.5);margin-left:4px}
+.video-info{position:relative;z-index:2;text-align:center}
 .video-title{font-size:1rem;font-weight:500;color:var(--white);letter-spacing:1px}
-.video-subtitle{font-size:.8rem;color:var(--gray);letter-spacing:1px}
-.video-badge{font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--blue);font-weight:600;padding:.4rem 1rem;border:1px solid rgba(74,158,255,.3);border-radius:20px}
+.video-subtitle{font-size:.8rem;color:var(--gray);letter-spacing:1px;margin-top:.3rem}
+.video-badge{display:inline-block;font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--blue);font-weight:600;padding:.35rem 1rem;border:1px solid rgba(74,158,255,.3);border-radius:20px;margin-top:.8rem}
 
-/* SECTION SHARED */
+/* SECTIONS */
 section{padding:7rem 2rem}
 .container{max-width:1000px;margin:0 auto}
 .section-label{font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--blue);margin-bottom:1.5rem;font-weight:600}
 .divider{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:0 auto;max-width:600px}
 
-/* CHALLENGE — image + text side by side */
+/* CHALLENGE */
 .challenge-row{display:flex;gap:4rem;align-items:center;margin-top:2rem}
 .challenge-img{flex:1;min-width:0}
 .challenge-img img{width:100%;border-radius:12px;opacity:.9}
 .challenge-text{flex:1;min-width:0}
-.challenge-text .problem-text{font-size:1.1rem;font-weight:300;line-height:2;color:var(--gray)}
-.challenge-text .problem-conclusion{margin-top:2rem;font-size:1.3rem;font-weight:500;line-height:1.8;color:var(--white)}
-.challenge-text .problem-conclusion em{font-style:normal;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.problem-text{font-size:1.1rem;font-weight:300;line-height:2;color:var(--gray)}
+.problem-conclusion{margin-top:2rem;font-size:1.3rem;font-weight:500;line-height:1.8;color:var(--white)}
+.problem-conclusion em{font-style:normal;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
-/* FRAMEWORK — central image + 4 cards */
+/* FRAMEWORK */
 .framework-intro{text-align:center;color:var(--gray);font-weight:300;font-size:.95rem;margin-bottom:3rem}
 .framework-visual{text-align:center;margin-bottom:3rem}
 .framework-visual img{max-width:600px;width:100%;border-radius:12px;opacity:.9}
 .framework-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
-.fw-item{padding:2rem;border:1px solid var(--line);border-radius:12px;transition:all .3s;position:relative;overflow:hidden}
+.fw-item{padding:2rem;border:1px solid var(--line);border-radius:12px;transition:all .3s}
 .fw-item:hover{border-color:rgba(74,158,255,.2);background:rgba(74,158,255,.03)}
 .fw-item .fw-num{font-size:.7rem;color:var(--blue);letter-spacing:3px;font-weight:600;margin-bottom:.8rem}
 .fw-item h3{font-size:1.05rem;font-weight:600;margin-bottom:.6rem}
 .fw-item p{font-size:.9rem;color:var(--gray);line-height:1.8;font-weight:300}
 
-/* ARCHITECTURE VIDEO */
-.arch-summary{max-width:900px;margin:0 auto;margin-top:3rem}
-.layers{margin-top:2rem}
+/* ARCH SUMMARY */
+.arch-summary{max-width:900px;margin:3rem auto 0}
+.layers{margin-top:1.5rem}
 .layer{display:flex;align-items:flex-start;gap:2rem;padding:1.2rem 0;border-bottom:1px solid var(--line)}
 .layer:last-child{border-bottom:none}
 .layer-num{font-size:.7rem;color:var(--blue);letter-spacing:2px;font-weight:600;min-width:20px;padding-top:.3rem}
 .layer-name{font-size:.95rem;font-weight:500;min-width:140px}
 .layer-desc{font-size:.88rem;color:var(--gray);font-weight:300}
 
-/* SANDBOX — text + image side by side (reversed) */
+/* SANDBOX */
 .sandbox-row{display:flex;gap:4rem;align-items:center;margin-top:2rem}
 .sandbox-text{flex:1;min-width:0}
 .sandbox-text h2{font-size:1.6rem;font-weight:400;line-height:1.6;margin-bottom:1.5rem}
@@ -128,19 +154,26 @@ section{padding:7rem 2rem}
 .sandbox-img img{width:100%;border-radius:12px;opacity:.9}
 
 /* PROJECTS */
+.projects-desc{color:var(--gray);font-weight:300;font-size:.95rem}
 .project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
 .project-card{border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--white);transition:all .3s}
 .project-card:hover{border-color:rgba(74,158,255,.25);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
-.project-card .card-visual{height:140px;background:var(--bg3);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line)}
-.project-card .card-icon{font-size:2.5rem;opacity:.4}
-.project-card .card-body{padding:1.5rem}
-.project-card .proj-label{font-size:.65rem;color:var(--blue);letter-spacing:2px;font-weight:600;text-transform:uppercase}
+.card-visual{height:160px;overflow:hidden;position:relative;border-bottom:1px solid var(--line)}
+.card-visual img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.project-card:hover .card-visual img{transform:scale(1.05)}
+/* CSS gradient fallback for missing images */
+.card-visual.grad-s100{background:linear-gradient(135deg,#0a2e1a,#143d2b,#0d3320)}
+.card-visual.grad-s100::after{content:"🌍";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.3}
+.card-visual.grad-map{background:linear-gradient(135deg,#1a1a2e,#16213e,#1a1025)}
+.card-visual.grad-map::after{content:"🗺️";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.3}
+.card-body{padding:1.5rem}
+.proj-label{font-size:.65rem;color:var(--blue);letter-spacing:2px;font-weight:600;text-transform:uppercase}
 .project-card h3{font-size:.95rem;font-weight:500;margin:.4rem 0}
 .project-card p{font-size:.82rem;color:var(--gray);font-weight:300;line-height:1.7}
 
-/* VISION — full-bleed background image */
+/* VISION */
 .vision{padding:10rem 2rem;position:relative;background:url('images/vision.png') center/cover no-repeat}
-.vision::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,20,.6) 0%,rgba(12,15,20,.5) 50%,rgba(12,15,20,.7) 100%)}
+.vision::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,20,.55) 0%,rgba(12,15,20,.45) 50%,rgba(12,15,20,.7) 100%)}
 .vision-content{position:relative;text-align:center;max-width:700px;margin:0 auto}
 .vision-text{font-size:clamp(1.2rem,3vw,1.6rem);font-weight:300;line-height:2;text-shadow:0 2px 15px rgba(0,0,0,.4)}
 .vision-text strong{font-weight:500;color:var(--white)}
@@ -159,12 +192,12 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
   .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(12,15,20,.98);flex-direction:column;padding:1.5rem;gap:1.2rem;border-bottom:1px solid var(--line)}
   .nav-links.open{display:flex}
   .nav-toggle{display:block}
+  .lang-switch{margin-left:auto;margin-right:.5rem}
   section{padding:4rem 1.5rem}
   .challenge-row,.sandbox-row{flex-direction:column;gap:2rem}
   .framework-grid{grid-template-columns:1fr}
   .project-grid{grid-template-columns:1fr}
   .layer{flex-direction:column;gap:.5rem}
-  .video-placeholder{height:300px}
   .vision{padding:6rem 1.5rem}
 }
 </style>
@@ -173,21 +206,44 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
 
 <nav id="navbar">
   <a href="#" class="nav-logo">Cooperation</a>
-  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="menu">&#9776;</button>
-  <ul class="nav-links">
-    <li><a href="#challenge">Why</a></li>
-    <li><a href="#framework">Framework</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="mailto:aicooperation.tw@gmail.com">Contact</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li>
+        <a href="#challenge" data-lang="zh">為什麼</a>
+        <a href="#challenge" data-lang="en">Why</a>
+      </li>
+      <li>
+        <a href="#framework" data-lang="zh">框架</a>
+        <a href="#framework" data-lang="en">Framework</a>
+      </li>
+      <li>
+        <a href="#projects" data-lang="zh">專案</a>
+        <a href="#projects" data-lang="en">Projects</a>
+      </li>
+      <li>
+        <a href="mailto:aicooperation.tw@gmail.com" data-lang="zh">聯絡</a>
+        <a href="mailto:aicooperation.tw@gmail.com" data-lang="en">Contact</a>
+      </li>
+    </ul>
+    <div class="lang-switch">
+      <button onclick="setLang('zh')" class="active" id="btn-zh">中</button>
+      <button onclick="setLang('en')" id="btn-en">EN</button>
+    </div>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="menu">&#9776;</button>
+  </div>
 </nav>
 
-<!-- HERO — Full-screen background image -->
+<!-- ==================== HERO ==================== -->
 <section class="hero">
   <div class="hero-content">
     <div class="overline">cooperation.tw</div>
-    <h1>Designing the Infrastructure of <strong>Human–AI Cooperation</strong></h1>
-    <p class="hero-statement">
+    <h1 data-lang="zh">打造<strong>人機協作</strong>的基礎架構</h1>
+    <h1 data-lang="en">Designing the Infrastructure of <strong>Human–AI Cooperation</strong></h1>
+    <p class="hero-sub" data-lang="zh">
+      從可控代理到模組化技能系統，我們設計結構化的環境，<br>
+      讓 AI 在明確的範疇、成本邊界與可驗證的流程中運行。
+    </p>
+    <p class="hero-sub" data-lang="en">
       From controllable agents to modular skill systems, we design structured environments<br>
       where AI operates within defined scope, cost boundaries, and verifiable workflows.
     </p>
@@ -195,21 +251,51 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
   <div class="scroll-hint">&darr;</div>
 </section>
 
-<!-- BRAND FILM — Video Placeholder -->
+<!-- ==================== BRAND FILM ==================== -->
 <div class="video-section">
   <div class="video-placeholder">
+    <img src="images/video-brand.png" alt="Brand Film thumbnail" loading="lazy">
+    <div class="video-overlay"></div>
     <div class="play-btn"></div>
-    <div class="video-title">Why Cooperation Matters</div>
-    <div class="video-subtitle">Brand Film &middot; 90 sec</div>
-    <div class="video-badge">Coming Soon</div>
+    <div class="video-info">
+      <div class="video-title" data-lang="zh">為什麼合作比智慧更重要</div>
+      <div class="video-title" data-lang="en">Why Cooperation Matters</div>
+      <div class="video-subtitle" data-lang="zh">品牌影片 &middot; 90 秒</div>
+      <div class="video-subtitle" data-lang="en">Brand Film &middot; 90 sec</div>
+      <div class="video-badge">Coming Soon</div>
+    </div>
   </div>
 </div>
 
-<!-- THE CHALLENGE — Image left, text right -->
+<!-- ==================== THE CHALLENGE ==================== -->
 <section id="challenge">
   <div class="container">
-    <div class="section-label">The Challenge</div>
-    <div class="challenge-row">
+    <div class="section-label" data-lang="zh">核心挑戰</div>
+    <div class="section-label" data-lang="en">The Challenge</div>
+
+    <div class="challenge-row" data-lang="zh">
+      <div class="challenge-img">
+        <img src="images/problem.png" alt="混沌與秩序的對比" loading="lazy">
+      </div>
+      <div class="challenge-text">
+        <div class="problem-text">
+          AI 系統既強大又快速。<br><br>
+          然而大多數導入都失敗了 &mdash;<br>
+          不是因為不夠聰明，<br>
+          而是因為缺乏結構。<br><br>
+          沒有明確邊界。<br>
+          成本無法預測。<br>
+          產出難以驗證。<br>
+          流程缺乏定義。
+        </div>
+        <div class="problem-conclusion">
+          真正的挑戰不是智慧，<br>
+          而是<em>協作</em>。
+        </div>
+      </div>
+    </div>
+
+    <div class="challenge-row" data-lang="en">
       <div class="challenge-img">
         <img src="images/problem.png" alt="AI without structure — chaos vs order" loading="lazy">
       </div>
@@ -235,18 +321,49 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
 
 <div class="divider"></div>
 
-<!-- FRAMEWORK — Central image + 4 cards -->
+<!-- ==================== FRAMEWORK ==================== -->
 <section id="framework">
   <div class="container">
-    <div class="section-label">Cooperation Framework</div>
-    <div class="framework-intro">
+    <div class="section-label" data-lang="zh">協作框架</div>
+    <div class="section-label" data-lang="en">Cooperation Framework</div>
+
+    <div class="framework-intro" data-lang="zh">
+      一套結構化的人機協作方法 &mdash;<br>
+      讓每一次執行都有範疇、成本與可追蹤性。
+    </div>
+    <div class="framework-intro" data-lang="en">
       A structured approach to human-AI collaboration &mdash;<br>
       where every execution has scope, cost, and traceability.
     </div>
+
     <div class="framework-visual">
       <img src="images/framework.png" alt="Layered architecture diagram" loading="lazy">
     </div>
-    <div class="framework-grid">
+
+    <div class="framework-grid" data-lang="zh">
+      <div class="fw-item">
+        <div class="fw-num">01</div>
+        <h3>明確範疇</h3>
+        <p>任務在明確的邊界內運行。每個代理都知道自己該做什麼、不該做什麼。</p>
+      </div>
+      <div class="fw-item">
+        <div class="fw-num">02</div>
+        <h3>可控成本</h3>
+        <p>執行遵守可量測的限制。沒有失控的 token 消耗、沒有意外帳單、沒有無限遞迴。</p>
+      </div>
+      <div class="fw-item">
+        <div class="fw-num">03</div>
+        <h3>可驗證流程</h3>
+        <p>工作流程可追蹤、可審查。每一條決策路徑都能被檢視、重播與理解。</p>
+      </div>
+      <div class="fw-item">
+        <div class="fw-num">04</div>
+        <h3>模組化技能</h3>
+        <p>能力可組合、可重用。一次建構，跨場景應用，持續演進。</p>
+      </div>
+    </div>
+
+    <div class="framework-grid" data-lang="en">
       <div class="fw-item">
         <div class="fw-num">01</div>
         <h3>Defined Scope</h3>
@@ -273,50 +390,56 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
 
 <div class="divider"></div>
 
-<!-- ARCHITECTURE EXPLAINER — Video Placeholder + Layer Summary -->
+<!-- ==================== ARCHITECTURE EXPLAINER ==================== -->
 <div class="video-section">
-  <div class="video-placeholder">
+  <div class="video-placeholder no-img">
     <div class="play-btn"></div>
-    <div class="video-title">System Architecture Explainer</div>
-    <div class="video-subtitle">Motion Graphics &middot; 2&ndash;3 min</div>
-    <div class="video-badge">Coming Soon</div>
+    <div class="video-info">
+      <div class="video-title" data-lang="zh">系統架構解說</div>
+      <div class="video-title" data-lang="en">System Architecture Explainer</div>
+      <div class="video-subtitle" data-lang="zh">動態圖解 &middot; 2&ndash;3 分鐘</div>
+      <div class="video-subtitle" data-lang="en">Motion Graphics &middot; 2&ndash;3 min</div>
+      <div class="video-badge">Coming Soon</div>
+    </div>
   </div>
   <div class="arch-summary">
-    <div class="layers">
-      <div class="layer">
-        <div class="layer-num">1</div>
-        <div class="layer-name">Intent Layer</div>
-        <div class="layer-desc">Human purpose meets structured expression</div>
-      </div>
-      <div class="layer">
-        <div class="layer-num">2</div>
-        <div class="layer-name">Agent Layer</div>
-        <div class="layer-desc">Structured execution within defined constraints</div>
-      </div>
-      <div class="layer">
-        <div class="layer-num">3</div>
-        <div class="layer-name">Skill Layer</div>
-        <div class="layer-desc">Composable capability modules with clear I/O</div>
-      </div>
-      <div class="layer">
-        <div class="layer-num">4</div>
-        <div class="layer-name">Verification Layer</div>
-        <div class="layer-desc">Every output validated against expectations</div>
-      </div>
-      <div class="layer">
-        <div class="layer-num">5</div>
-        <div class="layer-name">Output Layer</div>
-        <div class="layer-desc">Verified results with full provenance</div>
-      </div>
+    <div class="layers" data-lang="zh">
+      <div class="layer"><div class="layer-num">1</div><div class="layer-name">意圖層</div><div class="layer-desc">人類意圖轉化為結構化表達</div></div>
+      <div class="layer"><div class="layer-num">2</div><div class="layer-name">代理層</div><div class="layer-desc">在定義好的約束中結構化執行</div></div>
+      <div class="layer"><div class="layer-num">3</div><div class="layer-name">技能層</div><div class="layer-desc">可組合的能力模組，明確的輸入輸出</div></div>
+      <div class="layer"><div class="layer-num">4</div><div class="layer-name">驗證層</div><div class="layer-desc">每個輸出都根據預期進行驗證</div></div>
+      <div class="layer"><div class="layer-num">5</div><div class="layer-name">產出層</div><div class="layer-desc">附完整來源的驗證結果</div></div>
+    </div>
+    <div class="layers" data-lang="en">
+      <div class="layer"><div class="layer-num">1</div><div class="layer-name">Intent Layer</div><div class="layer-desc">Human purpose meets structured expression</div></div>
+      <div class="layer"><div class="layer-num">2</div><div class="layer-name">Agent Layer</div><div class="layer-desc">Structured execution within defined constraints</div></div>
+      <div class="layer"><div class="layer-num">3</div><div class="layer-name">Skill Layer</div><div class="layer-desc">Composable capability modules with clear I/O</div></div>
+      <div class="layer"><div class="layer-num">4</div><div class="layer-name">Verification Layer</div><div class="layer-desc">Every output validated against expectations</div></div>
+      <div class="layer"><div class="layer-num">5</div><div class="layer-name">Output Layer</div><div class="layer-desc">Verified results with full provenance</div></div>
     </div>
   </div>
 </div>
 
-<!-- SANDBOX — Text left, image right -->
+<!-- ==================== SANDBOX ==================== -->
 <section>
   <div class="container">
-    <div class="section-label">Sandbox</div>
-    <div class="sandbox-row">
+    <div class="section-label" data-lang="zh">沙盒</div>
+    <div class="section-label" data-lang="en">Sandbox</div>
+
+    <div class="sandbox-row" data-lang="zh">
+      <div class="sandbox-text">
+        <h2>協作智慧的<strong>沙盒環境</strong></h2>
+        <p>
+          工作流程清晰可見，約束條件可被檢視，執行路徑一目瞭然。<br><br>
+          我們的設計哲學是透明的 &mdash; 核心組件與技能模組開放探索與貢獻。
+        </p>
+      </div>
+      <div class="sandbox-img">
+        <img src="images/sandbox.png" alt="互動式模組化技能方塊" loading="lazy">
+      </div>
+    </div>
+
+    <div class="sandbox-row" data-lang="en">
       <div class="sandbox-text">
         <h2>A sandbox for <strong>cooperative intelligence</strong></h2>
         <p>
@@ -335,52 +458,63 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
 
 <div class="divider"></div>
 
-<!-- LIVE PROJECTS — 3 cards -->
+<!-- ==================== LIVE PROJECTS ==================== -->
 <section id="projects">
   <div class="container">
-    <div class="section-label">Live Projects</div>
-    <p style="color:var(--gray);font-weight:300;font-size:.95rem;margin-bottom:0">
-      Systems built on this framework, running in production.
-    </p>
+    <div class="section-label" data-lang="zh">運行中的專案</div>
+    <div class="section-label" data-lang="en">Live Projects</div>
+    <p class="projects-desc" data-lang="zh">基於此框架建構，已在生產環境中運行的系統。</p>
+    <p class="projects-desc" data-lang="en">Systems built on this framework, running in production.</p>
+
     <div class="project-grid">
       <a href="https://ai-cooperation.github.io/ai100/" class="project-card" target="_blank">
         <div class="card-visual">
-          <div class="card-icon">&#127891;</div>
+          <img src="images/proj-ai100.png" alt="AI 100 Lectures" loading="lazy">
         </div>
         <div class="card-body">
-          <div class="proj-label">Education</div>
+          <div class="proj-label" data-lang="zh">教育</div>
+          <div class="proj-label" data-lang="en">Education</div>
           <h3>AI 100 Lectures</h3>
-          <p>100 structured AI lectures with podcast, diagrams, and Cornell notes.</p>
+          <p data-lang="zh">100 堂結構化 AI 課程，含 Podcast、視覺圖解與康乃爾筆記，對齊 iPAS 認證。</p>
+          <p data-lang="en">100 structured AI lectures with podcast, diagrams, and Cornell notes. iPAS certification aligned.</p>
         </div>
       </a>
       <a href="https://ai-cooperation.github.io/sustainability-100/" class="project-card" target="_blank">
-        <div class="card-visual">
-          <div class="card-icon">&#127758;</div>
-        </div>
+        <div class="card-visual grad-s100"></div>
         <div class="card-body">
-          <div class="proj-label">Sustainability</div>
+          <div class="proj-label" data-lang="zh">永續發展</div>
+          <div class="proj-label" data-lang="en">Sustainability</div>
           <h3>Sustainability 100</h3>
-          <p>100-episode series on ESG, net-zero, and carbon management with AI podcasts.</p>
+          <p data-lang="zh">100 集 ESG、淨零碳排與碳管理系列，含 AI Podcast、資訊圖表與影片。</p>
+          <p data-lang="en">100-episode series on ESG, net-zero, and carbon management with AI podcasts and video.</p>
         </div>
       </a>
       <a href="https://ai-cooperation.github.io/foreclosure-map/" class="project-card" target="_blank">
-        <div class="card-visual">
-          <div class="card-icon">&#127968;</div>
-        </div>
+        <div class="card-visual grad-map"></div>
         <div class="card-body">
-          <div class="proj-label">Real Estate</div>
-          <h3>Foreclosure Map</h3>
-          <p>Real-time foreclosure property map covering all 22 Taiwan district courts.</p>
+          <div class="proj-label" data-lang="zh">不動產</div>
+          <div class="proj-label" data-lang="en">Real Estate</div>
+          <h3 data-lang="zh">法拍地圖</h3>
+          <h3 data-lang="en">Foreclosure Map</h3>
+          <p data-lang="zh">即時法拍屋地圖，涵蓋全台 22 個地方法院，每週自動更新。</p>
+          <p data-lang="en">Real-time foreclosure property map covering all 22 Taiwan district courts. Auto-updated weekly.</p>
         </div>
       </a>
     </div>
   </div>
 </section>
 
-<!-- VISION — Full-bleed background image -->
+<!-- ==================== VISION ==================== -->
 <section class="vision">
   <div class="vision-content">
-    <div class="vision-text">
+    <div class="vision-text" data-lang="zh">
+      當 AI 變得充裕而廉價，<br>
+      <strong>智慧本身不再是優勢。</strong>
+      <br><br>
+      優勢在於<br>
+      <span class="accent">與它協作的能力。</span>
+    </div>
+    <div class="vision-text" data-lang="en">
       When AI becomes abundant and cheap,<br>
       <strong>intelligence itself stops being the advantage.</strong>
       <br><br>
@@ -390,23 +524,39 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ==================== FOOTER ==================== -->
 <footer>
   <div class="footer-links">
-    <a href="mailto:aicooperation.tw@gmail.com?subject=[Cooperation] Inquiry">Contact</a>
+    <a href="mailto:aicooperation.tw@gmail.com?subject=[Cooperation] Inquiry" data-lang="zh">聯絡我們</a>
+    <a href="mailto:aicooperation.tw@gmail.com?subject=[Cooperation] Inquiry" data-lang="en">Contact</a>
     <a href="https://github.com/ai-cooperation" target="_blank">GitHub</a>
-    <a href="mailto:aicooperation.tw@gmail.com?subject=[Cooperation] Feedback">Feedback</a>
+    <a href="mailto:aicooperation.tw@gmail.com?subject=[Cooperation] Feedback" data-lang="zh">意見回饋</a>
+    <a href="mailto:aicooperation.tw@gmail.com?subject=[Cooperation] Feedback" data-lang="en">Feedback</a>
   </div>
   <div class="footer-copy">&copy; 2026 Cooperation</div>
 </footer>
 
 <script>
+// Navbar scroll
 window.addEventListener('scroll',function(){
   document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
 });
+// Mobile menu
 document.querySelectorAll('.nav-links a').forEach(function(a){
   a.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open')});
 });
+// Language switch
+function setLang(lang){
+  document.documentElement.lang=lang;
+  document.getElementById('btn-zh').classList.toggle('active',lang==='zh');
+  document.getElementById('btn-en').classList.toggle('active',lang==='en');
+  localStorage.setItem('lang',lang);
+}
+// Restore saved language
+(function(){
+  var saved=localStorage.getItem('lang');
+  if(saved)setLang(saved);
+})();
 </script>
 </body>
 </html>
