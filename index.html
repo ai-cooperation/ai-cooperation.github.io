@@ -12,7 +12,7 @@
 <meta property="og:title" content="Cooperation — Designing the Infrastructure of Human–AI Cooperation">
 <meta property="og:description" content="The real challenge is not intelligence. The real challenge is cooperation.">
 <meta property="og:url" content="https://cooperation.tw/">
-<meta property="og:image" content="https://ai-cooperation.github.io/images/hero.png">
+<meta property="og:image" content="https://cooperation.tw/images/hero.png">
 <meta property="og:site_name" content="Cooperation">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:locale:alternate" content="en_US">
@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Cooperation — Human–AI Infrastructure">
 <meta name="twitter:description" content="The real challenge is not intelligence. The real challenge is cooperation.">
-<meta name="twitter:image" content="https://ai-cooperation.github.io/images/hero.png">
+<meta name="twitter:image" content="https://cooperation.tw/images/hero.png">
 
 <script type="application/ld+json">
 {
@@ -54,42 +54,41 @@
 html{scroll-behavior:smooth}
 body{font-family:Inter,'Noto Sans TC',sans-serif;background:var(--bg);color:var(--white);line-height:1.8;overflow-x:hidden}
 
-/* i18n: hide inactive language — !important overrides display:flex/grid */
+/* i18n */
 [data-lang="en"]{display:none!important}
 html[lang="en"] [data-lang="en"]{display:block!important}
 html[lang="en"] [data-lang="zh"]{display:none!important}
 span[data-lang="en"],a[data-lang="en"]{display:none!important}
 html[lang="en"] span[data-lang="en"],html[lang="en"] a[data-lang="en"]{display:inline!important}
 html[lang="en"] span[data-lang="zh"],html[lang="en"] a[data-lang="zh"]{display:none!important}
-/* restore correct display types for flex/grid containers in EN mode */
 html[lang="en"] .challenge-row[data-lang="en"],
 html[lang="en"] .sandbox-row[data-lang="en"]{display:flex!important}
 html[lang="en"] .framework-grid[data-lang="en"]{display:grid!important}
 
 /* LANG SWITCH */
 .lang-switch{display:flex;gap:2px;background:rgba(255,255,255,.06);border-radius:6px;padding:2px;margin-left:1rem}
-.lang-switch button{background:none;border:none;color:var(--gray);font-size:.75rem;padding:.3rem .7rem;border-radius:4px;cursor:pointer;font-family:inherit;letter-spacing:1px;transition:all .2s}
+.lang-switch button{background:none;border:none;color:var(--gray);font-size:.8rem;padding:.35rem .8rem;border-radius:4px;cursor:pointer;font-family:inherit;letter-spacing:1px;transition:all .2s}
 .lang-switch button.active{background:rgba(74,158,255,.15);color:var(--blue)}
 
 /* NAV */
 nav{position:fixed;top:0;width:100%;z-index:100;padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center;transition:all .4s}
 nav.scrolled{background:rgba(12,15,20,.92);backdrop-filter:blur(20px);padding:1rem 3rem;border-bottom:1px solid var(--line)}
-.nav-logo{font-size:1.1rem;font-weight:600;color:var(--white);text-decoration:none;letter-spacing:2px;text-transform:uppercase;opacity:.9}
+.nav-logo{font-size:1.2rem;font-weight:600;color:var(--white);text-decoration:none;letter-spacing:2px;text-transform:uppercase;opacity:.9}
 .nav-right{display:flex;align-items:center;gap:0}
 .nav-links{display:flex;gap:2.5rem;list-style:none}
-.nav-links a{color:var(--gray);text-decoration:none;font-size:.85rem;letter-spacing:1px;transition:color .3s}
+.nav-links a{color:var(--gray);text-decoration:none;font-size:.95rem;letter-spacing:1px;transition:color .3s}
 .nav-links a:hover{color:var(--white)}
-.nav-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.3rem;cursor:pointer}
+.nav-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer}
 
 /* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 2rem;position:relative;background:url('images/hero.png') center/cover no-repeat}
 .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,20,.5) 0%,rgba(12,15,20,.65) 50%,rgba(12,15,20,.9) 100%)}
-.hero-content{position:relative;max-width:760px;padding:2rem 0}
-.hero-content .overline{font-size:.75rem;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:2rem;font-weight:500}
-.hero h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:300;line-height:1.4;margin-bottom:2rem;letter-spacing:.5px;text-shadow:0 2px 20px rgba(0,0,0,.4)}
+.hero-content{position:relative;max-width:800px;padding:2rem 0}
+.hero-content .overline{font-size:.85rem;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:2rem;font-weight:500}
+.hero h1{font-size:clamp(2.4rem,5.5vw,3.8rem);font-weight:300;line-height:1.4;margin-bottom:2rem;letter-spacing:.5px;text-shadow:0 2px 20px rgba(0,0,0,.4)}
 .hero h1 strong{font-weight:600;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero .hero-sub{font-size:1.1rem;color:rgba(255,255,255,.75);line-height:2;font-weight:300;text-shadow:0 1px 10px rgba(0,0,0,.3)}
-.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.3);font-size:.75rem;letter-spacing:2px;animation:float 3s ease-in-out infinite}
+.hero .hero-sub{font-size:1.25rem;color:rgba(255,255,255,.75);line-height:2.2;font-weight:300;text-shadow:0 1px 10px rgba(0,0,0,.3)}
+.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.3);font-size:.8rem;letter-spacing:2px;animation:float 3s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
 
 /* VIDEO SECTION */
@@ -98,93 +97,85 @@ nav.scrolled{background:rgba(12,15,20,.92);backdrop-filter:blur(20px);padding:1r
 .video-placeholder img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .video-placeholder .video-overlay{position:absolute;inset:0;background:rgba(12,15,20,.6);transition:background .3s}
 .video-placeholder:hover .video-overlay{background:rgba(12,15,20,.5)}
-/* fallback gradient for missing thumbnail */
-.video-placeholder.no-img{background:linear-gradient(135deg,#111827,#0c1929,#131028);border:1px solid var(--line)}
-.video-placeholder.no-img::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 40% 50%,rgba(74,158,255,.08),transparent 60%),radial-gradient(ellipse at 60% 50%,rgba(155,122,255,.06),transparent 50%);pointer-events:none}
-.play-btn{width:70px;height:70px;border-radius:50%;border:2px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;position:relative;z-index:2;transition:all .3s}
+.play-btn{width:76px;height:76px;border-radius:50%;border:2px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;position:relative;z-index:2;transition:all .3s}
 .video-placeholder:hover .play-btn{border-color:rgba(255,255,255,.4);transform:scale(1.05)}
-.play-btn::after{content:"";width:0;height:0;border-style:solid;border-width:12px 0 12px 20px;border-color:transparent transparent transparent rgba(255,255,255,.5);margin-left:4px}
+.play-btn::after{content:"";width:0;height:0;border-style:solid;border-width:14px 0 14px 22px;border-color:transparent transparent transparent rgba(255,255,255,.5);margin-left:4px}
 .video-info{position:relative;z-index:2;text-align:center}
-.video-title{font-size:1rem;font-weight:500;color:var(--white);letter-spacing:1px}
-.video-subtitle{font-size:.8rem;color:var(--gray);letter-spacing:1px;margin-top:.3rem}
-.video-badge{display:inline-block;font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--blue);font-weight:600;padding:.35rem 1rem;border:1px solid rgba(74,158,255,.3);border-radius:20px;margin-top:.8rem}
+.video-title{font-size:1.15rem;font-weight:500;color:var(--white);letter-spacing:1px}
+.video-subtitle{font-size:.9rem;color:var(--gray);letter-spacing:1px;margin-top:.3rem}
+.video-badge{display:inline-block;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--blue);font-weight:600;padding:.4rem 1.2rem;border:1px solid rgba(74,158,255,.3);border-radius:20px;margin-top:.8rem}
 
 /* SECTIONS */
 section{padding:7rem 2rem}
 .container{max-width:1000px;margin:0 auto}
-.section-label{font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--blue);margin-bottom:1.5rem;font-weight:600}
+.section-title{font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:600;margin-bottom:2rem;letter-spacing:1px;background:linear-gradient(135deg,var(--white),var(--gray));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .divider{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:0 auto;max-width:600px}
 
 /* CHALLENGE */
-.challenge-row{display:flex;gap:4rem;align-items:center;margin-top:2rem}
+.challenge-row{display:flex;gap:4rem;align-items:center;margin-top:2.5rem}
 .challenge-img{flex:1;min-width:0}
 .challenge-img img{width:100%;border-radius:12px;opacity:.9}
 .challenge-text{flex:1;min-width:0}
-.problem-text{font-size:1.1rem;font-weight:300;line-height:2;color:var(--gray)}
-.problem-conclusion{margin-top:2rem;font-size:1.3rem;font-weight:500;line-height:1.8;color:var(--white)}
+.problem-text{font-size:1.25rem;font-weight:300;line-height:2.2;color:var(--gray)}
+.problem-conclusion{margin-top:2rem;font-size:1.5rem;font-weight:500;line-height:1.8;color:var(--white)}
 .problem-conclusion em{font-style:normal;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
 /* FRAMEWORK */
-.framework-intro{text-align:center;color:var(--gray);font-weight:300;font-size:.95rem;margin-bottom:3rem}
+.framework-intro{text-align:center;color:var(--gray);font-weight:300;font-size:1.1rem;margin-bottom:3rem;line-height:2.2}
 .framework-visual{text-align:center;margin-bottom:3rem}
-.framework-visual img{max-width:600px;width:100%;border-radius:12px;opacity:.9}
+.framework-visual img{max-width:620px;width:100%;border-radius:12px;opacity:.9}
 .framework-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
 .fw-item{padding:2rem;border:1px solid var(--line);border-radius:12px;transition:all .3s}
 .fw-item:hover{border-color:rgba(74,158,255,.2);background:rgba(74,158,255,.03)}
-.fw-item .fw-num{font-size:.7rem;color:var(--blue);letter-spacing:3px;font-weight:600;margin-bottom:.8rem}
-.fw-item h3{font-size:1.05rem;font-weight:600;margin-bottom:.6rem}
-.fw-item p{font-size:.9rem;color:var(--gray);line-height:1.8;font-weight:300}
+.fw-item .fw-num{font-size:.75rem;color:var(--blue);letter-spacing:3px;font-weight:600;margin-bottom:.8rem}
+.fw-item h3{font-size:1.2rem;font-weight:600;margin-bottom:.6rem}
+.fw-item p{font-size:1.05rem;color:var(--gray);line-height:1.9;font-weight:300}
 
 /* ARCH SUMMARY */
 .arch-summary{max-width:900px;margin:3rem auto 0}
 .layers{margin-top:1.5rem}
-.layer{display:flex;align-items:flex-start;gap:2rem;padding:1.2rem 0;border-bottom:1px solid var(--line)}
+.layer{display:flex;align-items:flex-start;gap:2rem;padding:1.3rem 0;border-bottom:1px solid var(--line)}
 .layer:last-child{border-bottom:none}
-.layer-num{font-size:.7rem;color:var(--blue);letter-spacing:2px;font-weight:600;min-width:20px;padding-top:.3rem}
-.layer-name{font-size:.95rem;font-weight:500;min-width:140px}
-.layer-desc{font-size:.88rem;color:var(--gray);font-weight:300}
+.layer-num{font-size:.8rem;color:var(--blue);letter-spacing:2px;font-weight:600;min-width:24px;padding-top:.3rem}
+.layer-name{font-size:1.1rem;font-weight:500;min-width:140px}
+.layer-desc{font-size:1.05rem;color:var(--gray);font-weight:300}
 
 /* SANDBOX */
-.sandbox-row{display:flex;gap:4rem;align-items:center;margin-top:2rem}
+.sandbox-row{display:flex;gap:4rem;align-items:center;margin-top:2.5rem}
 .sandbox-text{flex:1;min-width:0}
-.sandbox-text h2{font-size:1.6rem;font-weight:400;line-height:1.6;margin-bottom:1.5rem}
+.sandbox-text h2{font-size:1.9rem;font-weight:400;line-height:1.6;margin-bottom:1.5rem}
 .sandbox-text h2 strong{font-weight:600}
-.sandbox-text p{font-size:1rem;color:var(--gray);line-height:2;font-weight:300}
+.sandbox-text p{font-size:1.15rem;color:var(--gray);line-height:2.2;font-weight:300}
 .sandbox-img{flex:1;min-width:0}
 .sandbox-img img{width:100%;border-radius:12px;opacity:.9}
 
 /* PROJECTS */
-.projects-desc{color:var(--gray);font-weight:300;font-size:.95rem}
+.projects-desc{color:var(--gray);font-weight:300;font-size:1.1rem;line-height:2}
 .project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
 .project-card{border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--white);transition:all .3s}
 .project-card:hover{border-color:rgba(74,158,255,.25);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
-.card-visual{height:160px;overflow:hidden;position:relative;border-bottom:1px solid var(--line)}
+.card-visual{height:170px;overflow:hidden;position:relative;border-bottom:1px solid var(--line)}
 .card-visual img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
 .project-card:hover .card-visual img{transform:scale(1.05)}
-/* CSS gradient fallback for missing images */
-.card-visual.grad-s100{background:linear-gradient(135deg,#0a2e1a,#143d2b,#0d3320)}
-.card-visual.grad-s100::after{content:"🌍";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.3}
-.card-visual.grad-map{background:linear-gradient(135deg,#1a1a2e,#16213e,#1a1025)}
-.card-visual.grad-map::after{content:"🗺️";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.3}
 .card-body{padding:1.5rem}
-.proj-label{font-size:.65rem;color:var(--blue);letter-spacing:2px;font-weight:600;text-transform:uppercase}
-.project-card h3{font-size:.95rem;font-weight:500;margin:.4rem 0}
-.project-card p{font-size:.82rem;color:var(--gray);font-weight:300;line-height:1.7}
+.proj-label{font-size:.75rem;color:var(--blue);letter-spacing:2px;font-weight:600;text-transform:uppercase}
+.project-card h3{font-size:1.1rem;font-weight:500;margin:.5rem 0}
+.project-card p{font-size:.95rem;color:var(--gray);font-weight:300;line-height:1.8}
 
 /* VISION */
 .vision{padding:10rem 2rem;position:relative;background:url('images/vision.png') center/cover no-repeat}
 .vision::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,20,.55) 0%,rgba(12,15,20,.45) 50%,rgba(12,15,20,.7) 100%)}
-.vision-content{position:relative;text-align:center;max-width:700px;margin:0 auto}
-.vision-text{font-size:clamp(1.2rem,3vw,1.6rem);font-weight:300;line-height:2;text-shadow:0 2px 15px rgba(0,0,0,.4)}
+.vision-content{position:relative;text-align:center;max-width:750px;margin:0 auto}
+.vision-text{font-size:clamp(1.4rem,3.5vw,1.9rem);font-weight:300;line-height:2.2;text-shadow:0 2px 15px rgba(0,0,0,.4)}
 .vision-text strong{font-weight:500;color:var(--white)}
 .vision-text .accent{background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:500}
 
 /* FOOTER */
 footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
 .footer-links{display:flex;gap:2.5rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap}
-.footer-links a{color:var(--gray);text-decoration:none;font-size:.85rem;letter-spacing:1px;transition:color .3s}
+.footer-links a{color:var(--gray);text-decoration:none;font-size:.95rem;letter-spacing:1px;transition:color .3s}
 .footer-links a:hover{color:var(--white)}
-.footer-copy{font-size:.75rem;color:var(--gray-dark);letter-spacing:1px}
+.footer-copy{font-size:.8rem;color:var(--gray-dark);letter-spacing:1px}
 
 /* RESPONSIVE */
 @media(max-width:768px){
@@ -240,12 +231,14 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
     <h1 data-lang="zh">打造<strong>人機協作</strong>的基礎架構</h1>
     <h1 data-lang="en">Designing the Infrastructure of <strong>Human–AI Cooperation</strong></h1>
     <p class="hero-sub" data-lang="zh">
-      從可控代理到模組化技能系統，我們設計結構化的環境，<br>
-      讓 AI 在明確的範疇、成本邊界與可驗證的流程中運行。
+      從可控代理到模組化技能系統<br>
+      我們設計結構化的環境<br>
+      讓 AI 在明確的範疇、成本邊界與可驗證的流程中運行
     </p>
     <p class="hero-sub" data-lang="en">
-      From controllable agents to modular skill systems, we design structured environments<br>
-      where AI operates within defined scope, cost boundaries, and verifiable workflows.
+      From controllable agents to modular skill systems<br>
+      we design structured environments<br>
+      where AI operates within defined scope, cost boundaries, and verifiable workflows
     </p>
   </div>
   <div class="scroll-hint">&darr;</div>
@@ -270,8 +263,8 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
 <!-- ==================== THE CHALLENGE ==================== -->
 <section id="challenge">
   <div class="container">
-    <div class="section-label" data-lang="zh">核心挑戰</div>
-    <div class="section-label" data-lang="en">The Challenge</div>
+    <div class="section-title" data-lang="zh">核心挑戰</div>
+    <div class="section-title" data-lang="en">The Challenge</div>
 
     <div class="challenge-row" data-lang="zh">
       <div class="challenge-img">
@@ -279,18 +272,18 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
       </div>
       <div class="challenge-text">
         <div class="problem-text">
-          AI 系統既強大又快速。<br><br>
+          AI 系統既強大又快速<br><br>
           然而大多數導入都失敗了 &mdash;<br>
-          不是因為不夠聰明，<br>
-          而是因為缺乏結構。<br><br>
-          沒有明確邊界。<br>
-          成本無法預測。<br>
-          產出難以驗證。<br>
-          流程缺乏定義。
+          不是因為不夠聰明<br>
+          而是因為缺乏結構<br><br>
+          沒有明確邊界<br>
+          成本無法預測<br>
+          產出難以驗證<br>
+          流程缺乏定義
         </div>
         <div class="problem-conclusion">
-          真正的挑戰不是智慧，<br>
-          而是<em>協作</em>。
+          真正的挑戰不是智慧<br>
+          而是<em>協作</em>
         </div>
       </div>
     </div>
@@ -301,18 +294,18 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
       </div>
       <div class="challenge-text">
         <div class="problem-text">
-          AI systems are capable and fast.<br><br>
+          AI systems are capable and fast<br><br>
           Yet most implementations fail &mdash;<br>
-          not because of intelligence,<br>
-          but because of structure.<br><br>
-          No clear boundaries.<br>
-          No cost predictability.<br>
-          No verifiable outputs.<br>
-          No structural workflows.
+          not because of intelligence<br>
+          but because of structure<br><br>
+          No clear boundaries<br>
+          No cost predictability<br>
+          No verifiable outputs<br>
+          No structural workflows
         </div>
         <div class="problem-conclusion">
-          The real challenge is not intelligence.<br>
-          The real challenge is <em>cooperation</em>.
+          The real challenge is not intelligence<br>
+          The real challenge is <em>cooperation</em>
         </div>
       </div>
     </div>
@@ -324,16 +317,16 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
 <!-- ==================== FRAMEWORK ==================== -->
 <section id="framework">
   <div class="container">
-    <div class="section-label" data-lang="zh">協作框架</div>
-    <div class="section-label" data-lang="en">Cooperation Framework</div>
+    <div class="section-title" data-lang="zh">協作框架</div>
+    <div class="section-title" data-lang="en">Cooperation Framework</div>
 
     <div class="framework-intro" data-lang="zh">
       一套結構化的人機協作方法 &mdash;<br>
-      讓每一次執行都有範疇、成本與可追蹤性。
+      讓每一次執行都有範疇、成本與可追蹤性
     </div>
     <div class="framework-intro" data-lang="en">
       A structured approach to human-AI collaboration &mdash;<br>
-      where every execution has scope, cost, and traceability.
+      where every execution has scope, cost, and traceability
     </div>
 
     <div class="framework-visual">
@@ -344,22 +337,22 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
       <div class="fw-item">
         <div class="fw-num">01</div>
         <h3>明確範疇</h3>
-        <p>任務在明確的邊界內運行。每個代理都知道自己該做什麼、不該做什麼。</p>
+        <p>任務在明確的邊界內運行<br>每個代理都知道自己該做什麼<br>不該做什麼</p>
       </div>
       <div class="fw-item">
         <div class="fw-num">02</div>
         <h3>可控成本</h3>
-        <p>執行遵守可量測的限制。沒有失控的 token 消耗、沒有意外帳單、沒有無限遞迴。</p>
+        <p>執行遵守可量測的限制<br>沒有失控的 token 消耗<br>沒有意外帳單<br>沒有無限遞迴</p>
       </div>
       <div class="fw-item">
         <div class="fw-num">03</div>
         <h3>可驗證流程</h3>
-        <p>工作流程可追蹤、可審查。每一條決策路徑都能被檢視、重播與理解。</p>
+        <p>工作流程可追蹤、可審查<br>每一條決策路徑都能被檢視、重播與理解</p>
       </div>
       <div class="fw-item">
         <div class="fw-num">04</div>
         <h3>模組化技能</h3>
-        <p>能力可組合、可重用。一次建構，跨場景應用，持續演進。</p>
+        <p>能力可組合、可重用<br>一次建構<br>跨場景應用<br>持續演進</p>
       </div>
     </div>
 
@@ -367,22 +360,22 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
       <div class="fw-item">
         <div class="fw-num">01</div>
         <h3>Defined Scope</h3>
-        <p>Tasks operate within explicit boundaries. Every agent knows what it should &mdash; and should not &mdash; do.</p>
+        <p>Tasks operate within explicit boundaries<br>Every agent knows what it should &mdash; and should not &mdash; do</p>
       </div>
       <div class="fw-item">
         <div class="fw-num">02</div>
         <h3>Controlled Cost</h3>
-        <p>Execution respects measurable limits. No runaway tokens, no surprise bills, no uncontrolled recursion.</p>
+        <p>Execution respects measurable limits<br>No runaway tokens, no surprise bills, no uncontrolled recursion</p>
       </div>
       <div class="fw-item">
         <div class="fw-num">03</div>
         <h3>Verifiable Process</h3>
-        <p>Workflows are traceable and reviewable. Every decision path can be inspected, replayed, and understood.</p>
+        <p>Workflows are traceable and reviewable<br>Every decision path can be inspected, replayed, and understood</p>
       </div>
       <div class="fw-item">
         <div class="fw-num">04</div>
         <h3>Modular Skills</h3>
-        <p>Capabilities are composable and reusable. Build once, apply across contexts, evolve continuously.</p>
+        <p>Capabilities are composable and reusable<br>Build once, apply across contexts, evolve continuously</p>
       </div>
     </div>
   </div>
@@ -392,7 +385,9 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
 
 <!-- ==================== ARCHITECTURE EXPLAINER ==================== -->
 <div class="video-section">
-  <div class="video-placeholder"><img src="images/video-arch.png" alt="Architecture Explainer thumbnail" loading="lazy"><div class="video-overlay"></div>
+  <div class="video-placeholder">
+    <img src="images/video-arch.png" alt="Architecture Explainer thumbnail" loading="lazy">
+    <div class="video-overlay"></div>
     <div class="play-btn"></div>
     <div class="video-info">
       <div class="video-title" data-lang="zh">系統架構解說</div>
@@ -403,10 +398,12 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
     </div>
   </div>
   <div class="arch-summary">
+    <div class="section-title" data-lang="zh" style="margin-top:2rem">系統架構</div>
+    <div class="section-title" data-lang="en" style="margin-top:2rem">System Architecture</div>
     <div class="layers" data-lang="zh">
       <div class="layer"><div class="layer-num">1</div><div class="layer-name">意圖層</div><div class="layer-desc">人類意圖轉化為結構化表達</div></div>
       <div class="layer"><div class="layer-num">2</div><div class="layer-name">代理層</div><div class="layer-desc">在定義好的約束中結構化執行</div></div>
-      <div class="layer"><div class="layer-num">3</div><div class="layer-name">技能層</div><div class="layer-desc">可組合的能力模組，明確的輸入輸出</div></div>
+      <div class="layer"><div class="layer-num">3</div><div class="layer-name">技能層</div><div class="layer-desc">可組合的能力模組、明確的輸入輸出</div></div>
       <div class="layer"><div class="layer-num">4</div><div class="layer-name">驗證層</div><div class="layer-desc">每個輸出都根據預期進行驗證</div></div>
       <div class="layer"><div class="layer-num">5</div><div class="layer-name">產出層</div><div class="layer-desc">附完整來源的驗證結果</div></div>
     </div>
@@ -423,15 +420,18 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
 <!-- ==================== SANDBOX ==================== -->
 <section>
   <div class="container">
-    <div class="section-label" data-lang="zh">沙盒</div>
-    <div class="section-label" data-lang="en">Sandbox</div>
+    <div class="section-title" data-lang="zh">沙盒</div>
+    <div class="section-title" data-lang="en">Sandbox</div>
 
     <div class="sandbox-row" data-lang="zh">
       <div class="sandbox-text">
         <h2>協作智慧的<strong>沙盒環境</strong></h2>
         <p>
-          工作流程清晰可見，約束條件可被檢視，執行路徑一目瞭然。<br><br>
-          我們的設計哲學是透明的 &mdash; 核心組件與技能模組開放探索與貢獻。
+          工作流程清晰可見<br>
+          約束條件可被檢視<br>
+          執行路徑一目瞭然<br><br>
+          我們的設計哲學是透明的 &mdash;<br>
+          核心組件與技能模組開放探索與貢獻
         </p>
       </div>
       <div class="sandbox-img">
@@ -443,10 +443,11 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
       <div class="sandbox-text">
         <h2>A sandbox for <strong>cooperative intelligence</strong></h2>
         <p>
-          Where workflows are visible, constraints inspectable,
-          and execution paths understandable.<br><br>
-          Our design philosophy is transparent &mdash; core components
-          and skill modules are available for exploration and contribution.
+          Where workflows are visible<br>
+          constraints inspectable<br>
+          and execution paths understandable<br><br>
+          Our design philosophy is transparent &mdash;<br>
+          core components and skill modules are available for exploration and contribution
         </p>
       </div>
       <div class="sandbox-img">
@@ -461,10 +462,10 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
 <!-- ==================== LIVE PROJECTS ==================== -->
 <section id="projects">
   <div class="container">
-    <div class="section-label" data-lang="zh">運行中的專案</div>
-    <div class="section-label" data-lang="en">Live Projects</div>
-    <p class="projects-desc" data-lang="zh">基於此框架建構，已在生產環境中運行的系統。</p>
-    <p class="projects-desc" data-lang="en">Systems built on this framework, running in production.</p>
+    <div class="section-title" data-lang="zh">運行中的專案</div>
+    <div class="section-title" data-lang="en">Live Projects</div>
+    <p class="projects-desc" data-lang="zh">基於此框架建構<br>已在生產環境中運行的系統</p>
+    <p class="projects-desc" data-lang="en">Systems built on this framework<br>running in production</p>
 
     <div class="project-grid">
       <a href="https://ai-cooperation.github.io/ai100/" class="project-card" target="_blank">
@@ -475,29 +476,33 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
           <div class="proj-label" data-lang="zh">教育</div>
           <div class="proj-label" data-lang="en">Education</div>
           <h3>AI 100 Lectures</h3>
-          <p data-lang="zh">100 堂結構化 AI 課程，含 Podcast、視覺圖解與康乃爾筆記，對齊 iPAS 認證。</p>
-          <p data-lang="en">100 structured AI lectures with podcast, diagrams, and Cornell notes. iPAS certification aligned.</p>
+          <p data-lang="zh">100 堂結構化 AI 課程<br>含 Podcast、視覺圖解與康乃爾筆記<br>對齊 iPAS 認證</p>
+          <p data-lang="en">100 structured AI lectures<br>with podcast, diagrams, and Cornell notes<br>iPAS certification aligned</p>
         </div>
       </a>
       <a href="https://ai-cooperation.github.io/sustainability-100/" class="project-card" target="_blank">
-        <div class="card-visual"><img src="images/proj-s100.png" alt="Sustainability 100" loading="lazy"></div>
+        <div class="card-visual">
+          <img src="images/proj-s100.png" alt="Sustainability 100" loading="lazy">
+        </div>
         <div class="card-body">
           <div class="proj-label" data-lang="zh">永續發展</div>
           <div class="proj-label" data-lang="en">Sustainability</div>
           <h3>Sustainability 100</h3>
-          <p data-lang="zh">100 集 ESG、淨零碳排與碳管理系列，含 AI Podcast、資訊圖表與影片。</p>
-          <p data-lang="en">100-episode series on ESG, net-zero, and carbon management with AI podcasts and video.</p>
+          <p data-lang="zh">100 集 ESG、淨零碳排與碳管理系列<br>含 AI Podcast、資訊圖表與影片</p>
+          <p data-lang="en">100-episode series on ESG, net-zero, and carbon management<br>with AI podcasts and video</p>
         </div>
       </a>
       <a href="https://ai-cooperation.github.io/foreclosure-map/" class="project-card" target="_blank">
-        <div class="card-visual"><img src="images/proj-foreclosure.png" alt="Foreclosure Map" loading="lazy"></div>
+        <div class="card-visual">
+          <img src="images/proj-foreclosure.png" alt="Foreclosure Map" loading="lazy">
+        </div>
         <div class="card-body">
           <div class="proj-label" data-lang="zh">不動產</div>
           <div class="proj-label" data-lang="en">Real Estate</div>
           <h3 data-lang="zh">法拍地圖</h3>
           <h3 data-lang="en">Foreclosure Map</h3>
-          <p data-lang="zh">即時法拍屋地圖，涵蓋全台 22 個地方法院，每週自動更新。</p>
-          <p data-lang="en">Real-time foreclosure property map covering all 22 Taiwan district courts. Auto-updated weekly.</p>
+          <p data-lang="zh">即時法拍屋地圖<br>涵蓋全台 22 個地方法院<br>每週自動更新</p>
+          <p data-lang="en">Real-time foreclosure property map<br>covering all 22 Taiwan district courts<br>Auto-updated weekly</p>
         </div>
       </a>
     </div>
@@ -508,18 +513,18 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
 <section class="vision">
   <div class="vision-content">
     <div class="vision-text" data-lang="zh">
-      當 AI 變得充裕而廉價，<br>
-      <strong>智慧本身不再是優勢。</strong>
+      當 AI 變得充裕而廉價<br>
+      <strong>智慧本身不再是優勢</strong>
       <br><br>
       優勢在於<br>
-      <span class="accent">與它協作的能力。</span>
+      <span class="accent">與它協作的能力</span>
     </div>
     <div class="vision-text" data-lang="en">
-      When AI becomes abundant and cheap,<br>
-      <strong>intelligence itself stops being the advantage.</strong>
+      When AI becomes abundant and cheap<br>
+      <strong>intelligence itself stops being the advantage</strong>
       <br><br>
       The advantage becomes<br>
-      <span class="accent">the ability to cooperate with it.</span>
+      <span class="accent">the ability to cooperate with it</span>
     </div>
   </div>
 </section>
@@ -537,22 +542,18 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
 </footer>
 
 <script>
-// Navbar scroll
 window.addEventListener('scroll',function(){
   document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
 });
-// Mobile menu
 document.querySelectorAll('.nav-links a').forEach(function(a){
   a.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open')});
 });
-// Language switch
 function setLang(lang){
   document.documentElement.lang=lang;
   document.getElementById('btn-zh').classList.toggle('active',lang==='zh');
   document.getElementById('btn-en').classList.toggle('active',lang==='en');
   localStorage.setItem('lang',lang);
 }
-// Restore saved language
 (function(){
   var saved=localStorage.getItem('lang');
   if(saved)setLang(saved);
