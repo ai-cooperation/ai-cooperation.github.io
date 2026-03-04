@@ -12,12 +12,14 @@
 <meta property="og:title" content="Cooperation — Designing the Infrastructure of Human–AI Cooperation">
 <meta property="og:description" content="The real challenge is not intelligence. The real challenge is cooperation.">
 <meta property="og:url" content="https://cooperation.tw/">
+<meta property="og:image" content="https://ai-cooperation.github.io/images/hero.png">
 <meta property="og:site_name" content="Cooperation">
 <meta property="og:locale" content="zh_TW">
 
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Cooperation — Human–AI Infrastructure">
 <meta name="twitter:description" content="The real challenge is not intelligence. The real challenge is cooperation.">
+<meta name="twitter:image" content="https://ai-cooperation.github.io/images/hero.png">
 
 <script type="application/ld+json">
 {
@@ -49,7 +51,7 @@
   --line:rgba(255,255,255,.06);
 }
 html{scroll-behavior:smooth}
-body{font-family:Inter,Noto Sans TC,sans-serif;background:var(--bg);color:var(--white);line-height:1.8;overflow-x:hidden}
+body{font-family:Inter,'Noto Sans TC',sans-serif;background:var(--bg);color:var(--white);line-height:1.8;overflow-x:hidden}
 
 /* NAV */
 nav{position:fixed;top:0;width:100%;z-index:100;padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center;transition:all .4s}
@@ -60,59 +62,87 @@ nav.scrolled{background:rgba(12,15,20,.92);backdrop-filter:blur(20px);padding:1r
 .nav-links a:hover{color:var(--white)}
 .nav-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.3rem;cursor:pointer}
 
-/* HERO */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 6rem;position:relative}
-.hero::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 25% 40%,var(--blue-soft),transparent 60%),radial-gradient(ellipse at 75% 60%,var(--purple-soft),transparent 50%);pointer-events:none}
-.hero-content{position:relative;max-width:720px}
-.hero-content .overline{font-size:.75rem;letter-spacing:4px;text-transform:uppercase;color:var(--gray);margin-bottom:2rem;font-weight:500}
-.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:300;line-height:1.4;margin-bottom:2rem;letter-spacing:.5px}
+/* HERO — full-screen background image */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 2rem;position:relative;background:url('images/hero.png') center/cover no-repeat}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,20,.55) 0%,rgba(12,15,20,.7) 50%,rgba(12,15,20,.9) 100%)}
+.hero-content{position:relative;max-width:760px;padding:2rem 0}
+.hero-content .overline{font-size:.75rem;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:2rem;font-weight:500}
+.hero h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:300;line-height:1.4;margin-bottom:2rem;letter-spacing:.5px;text-shadow:0 2px 20px rgba(0,0,0,.4)}
 .hero h1 strong{font-weight:600;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero .hero-statement{font-size:1.15rem;color:var(--gray);line-height:2;margin-bottom:3rem;font-weight:300}
-.hero .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:var(--gray-dark);font-size:.75rem;letter-spacing:2px;animation:float 3s ease-in-out infinite}
+.hero .hero-statement{font-size:1.1rem;color:rgba(255,255,255,.75);line-height:2;font-weight:300;text-shadow:0 1px 10px rgba(0,0,0,.3)}
+.hero .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.3);font-size:.75rem;letter-spacing:2px;animation:float 3s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
 
-/* DIVIDER */
+/* VIDEO PLACEHOLDER */
+.video-section{padding:5rem 2rem;background:var(--bg2)}
+.video-placeholder{max-width:900px;margin:0 auto;height:450px;border-radius:16px;background:linear-gradient(135deg,var(--bg3),var(--bg));border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;position:relative;overflow:hidden}
+.video-placeholder::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,var(--blue-soft),transparent 70%);pointer-events:none}
+.play-btn{width:70px;height:70px;border-radius:50%;border:2px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;position:relative;transition:all .3s;cursor:default}
+.play-btn::after{content:"";width:0;height:0;border-style:solid;border-width:12px 0 12px 20px;border-color:transparent transparent transparent rgba(255,255,255,.4);margin-left:4px}
+.video-title{font-size:1rem;font-weight:500;color:var(--white);letter-spacing:1px}
+.video-subtitle{font-size:.8rem;color:var(--gray);letter-spacing:1px}
+.video-badge{font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--blue);font-weight:600;padding:.4rem 1rem;border:1px solid rgba(74,158,255,.3);border-radius:20px}
+
+/* SECTION SHARED */
+section{padding:7rem 2rem}
+.container{max-width:1000px;margin:0 auto}
+.section-label{font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--blue);margin-bottom:1.5rem;font-weight:600}
 .divider{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:0 auto;max-width:600px}
 
-/* SECTIONS */
-section{padding:7rem 2rem}
-.container{max-width:900px;margin:0 auto}
-.section-label{font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--blue);margin-bottom:1.5rem;font-weight:600}
+/* CHALLENGE — image + text side by side */
+.challenge-row{display:flex;gap:4rem;align-items:center;margin-top:2rem}
+.challenge-img{flex:1;min-width:0}
+.challenge-img img{width:100%;border-radius:12px;opacity:.9}
+.challenge-text{flex:1;min-width:0}
+.challenge-text .problem-text{font-size:1.1rem;font-weight:300;line-height:2;color:var(--gray)}
+.challenge-text .problem-conclusion{margin-top:2rem;font-size:1.3rem;font-weight:500;line-height:1.8;color:var(--white)}
+.challenge-text .problem-conclusion em{font-style:normal;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
-/* PROBLEM */
-.problem-text{font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:300;line-height:2;color:var(--white);opacity:.9}
-.problem-text .dim{color:var(--gray)}
-.problem-conclusion{margin-top:3rem;font-size:1.4rem;font-weight:500;line-height:1.8}
-.problem-conclusion em{font-style:normal;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-
-/* FRAMEWORK */
-.framework-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:3rem}
+/* FRAMEWORK — central image + 4 cards */
+.framework-intro{text-align:center;color:var(--gray);font-weight:300;font-size:.95rem;margin-bottom:3rem}
+.framework-visual{text-align:center;margin-bottom:3rem}
+.framework-visual img{max-width:600px;width:100%;border-radius:12px;opacity:.9}
+.framework-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
 .fw-item{padding:2rem;border:1px solid var(--line);border-radius:12px;transition:all .3s;position:relative;overflow:hidden}
 .fw-item:hover{border-color:rgba(74,158,255,.2);background:rgba(74,158,255,.03)}
 .fw-item .fw-num{font-size:.7rem;color:var(--blue);letter-spacing:3px;font-weight:600;margin-bottom:.8rem}
-.fw-item h3{font-size:1.05rem;font-weight:600;margin-bottom:.6rem;letter-spacing:.5px}
+.fw-item h3{font-size:1.05rem;font-weight:600;margin-bottom:.6rem}
 .fw-item p{font-size:.9rem;color:var(--gray);line-height:1.8;font-weight:300}
 
-/* LAYERS */
-.layers{margin-top:3rem}
-.layer{display:flex;align-items:flex-start;gap:2rem;padding:1.5rem 0;border-bottom:1px solid var(--line)}
+/* ARCHITECTURE VIDEO */
+.arch-summary{max-width:900px;margin:0 auto;margin-top:3rem}
+.layers{margin-top:2rem}
+.layer{display:flex;align-items:flex-start;gap:2rem;padding:1.2rem 0;border-bottom:1px solid var(--line)}
 .layer:last-child{border-bottom:none}
-.layer-num{font-size:.7rem;color:var(--blue);letter-spacing:2px;font-weight:600;min-width:60px;padding-top:.3rem}
-.layer-content h3{font-size:1rem;font-weight:500;margin-bottom:.3rem}
-.layer-content p{font-size:.88rem;color:var(--gray);font-weight:300}
+.layer-num{font-size:.7rem;color:var(--blue);letter-spacing:2px;font-weight:600;min-width:20px;padding-top:.3rem}
+.layer-name{font-size:.95rem;font-weight:500;min-width:140px}
+.layer-desc{font-size:.88rem;color:var(--gray);font-weight:300}
+
+/* SANDBOX — text + image side by side (reversed) */
+.sandbox-row{display:flex;gap:4rem;align-items:center;margin-top:2rem}
+.sandbox-text{flex:1;min-width:0}
+.sandbox-text h2{font-size:1.6rem;font-weight:400;line-height:1.6;margin-bottom:1.5rem}
+.sandbox-text h2 strong{font-weight:600}
+.sandbox-text p{font-size:1rem;color:var(--gray);line-height:2;font-weight:300}
+.sandbox-img{flex:1;min-width:0}
+.sandbox-img img{width:100%;border-radius:12px;opacity:.9}
 
 /* PROJECTS */
-.project-grid{display:grid;grid-template-columns:1fr;gap:1.5rem;margin-top:3rem}
-.project-item{display:flex;align-items:center;gap:2rem;padding:1.8rem 2rem;border:1px solid var(--line);border-radius:12px;text-decoration:none;color:var(--white);transition:all .3s}
-.project-item:hover{border-color:rgba(74,158,255,.25);background:rgba(74,158,255,.03);transform:translateX(6px)}
-.project-item .proj-label{font-size:.7rem;color:var(--blue);letter-spacing:2px;font-weight:600}
-.project-item h3{font-size:1rem;font-weight:500;margin:.2rem 0}
-.project-item p{font-size:.85rem;color:var(--gray);font-weight:300}
-.project-item .proj-arrow{margin-left:auto;color:var(--gray-dark);font-size:1.2rem;transition:color .3s}
-.project-item:hover .proj-arrow{color:var(--blue)}
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.project-card{border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--white);transition:all .3s}
+.project-card:hover{border-color:rgba(74,158,255,.25);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.project-card .card-visual{height:140px;background:var(--bg3);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line)}
+.project-card .card-icon{font-size:2.5rem;opacity:.4}
+.project-card .card-body{padding:1.5rem}
+.project-card .proj-label{font-size:.65rem;color:var(--blue);letter-spacing:2px;font-weight:600;text-transform:uppercase}
+.project-card h3{font-size:.95rem;font-weight:500;margin:.4rem 0}
+.project-card p{font-size:.82rem;color:var(--gray);font-weight:300;line-height:1.7}
 
-/* VISION */
-.vision-text{font-size:clamp(1.2rem,3vw,1.6rem);font-weight:300;line-height:2;text-align:center;max-width:650px;margin:0 auto}
+/* VISION — full-bleed background image */
+.vision{padding:10rem 2rem;position:relative;background:url('images/vision.png') center/cover no-repeat}
+.vision::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,20,.6) 0%,rgba(12,15,20,.5) 50%,rgba(12,15,20,.7) 100%)}
+.vision-content{position:relative;text-align:center;max-width:700px;margin:0 auto}
+.vision-text{font-size:clamp(1.2rem,3vw,1.6rem);font-weight:300;line-height:2;text-shadow:0 2px 15px rgba(0,0,0,.4)}
 .vision-text strong{font-weight:500;color:var(--white)}
 .vision-text .accent{background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:500}
 
@@ -130,10 +160,12 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
   .nav-links.open{display:flex}
   .nav-toggle{display:block}
   section{padding:4rem 1.5rem}
+  .challenge-row,.sandbox-row{flex-direction:column;gap:2rem}
   .framework-grid{grid-template-columns:1fr}
+  .project-grid{grid-template-columns:1fr}
   .layer{flex-direction:column;gap:.5rem}
-  .project-item{flex-direction:column;align-items:flex-start;gap:1rem}
-  .project-item .proj-arrow{display:none}
+  .video-placeholder{height:300px}
+  .vision{padding:6rem 1.5rem}
 }
 </style>
 </head>
@@ -141,64 +173,84 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
 
 <nav id="navbar">
   <a href="#" class="nav-logo">Cooperation</a>
-  <button class="nav-toggle" onclick="document.querySelector(.nav-links).classList.toggle(open)" aria-label="menu">&#9776;</button>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="menu">&#9776;</button>
   <ul class="nav-links">
-    <li><a href="#problem">Why</a></li>
+    <li><a href="#challenge">Why</a></li>
     <li><a href="#framework">Framework</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="mailto:aicooperation.tw@gmail.com">Contact</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
+<!-- HERO — Full-screen background image -->
 <section class="hero">
   <div class="hero-content">
     <div class="overline">cooperation.tw</div>
     <h1>Designing the Infrastructure of <strong>Human–AI Cooperation</strong></h1>
     <p class="hero-statement">
-      We are not building another AI tool.<br>
-      We are designing the structural framework that enables humans and AI systems<br>
-      to collaborate under defined constraints, measurable cost, and verifiable processes.
+      From controllable agents to modular skill systems, we design structured environments<br>
+      where AI operates within defined scope, cost boundaries, and verifiable workflows.
     </p>
   </div>
   <div class="scroll-hint">&darr;</div>
 </section>
 
-<div class="divider"></div>
+<!-- BRAND FILM — Video Placeholder -->
+<div class="video-section">
+  <div class="video-placeholder">
+    <div class="play-btn"></div>
+    <div class="video-title">Why Cooperation Matters</div>
+    <div class="video-subtitle">Brand Film &middot; 90 sec</div>
+    <div class="video-badge">Coming Soon</div>
+  </div>
+</div>
 
-<!-- PROBLEM -->
-<section id="problem">
+<!-- THE CHALLENGE — Image left, text right -->
+<section id="challenge">
   <div class="container">
     <div class="section-label">The Challenge</div>
-    <div class="problem-text">
-      AI systems are capable and fast.<br>
-      <span class="dim">Yet most implementations fail — not because of intelligence,<br>
-      but because of structure.</span>
-      <br><br>
-      <span class="dim">AI operates without clear boundaries.</span><br>
-      <span class="dim">Costs are unpredictable.</span><br>
-      <span class="dim">Outputs are difficult to verify.</span><br>
-      <span class="dim">Workflows are not structurally defined.</span><br>
-      <span class="dim">Teaching AI systems remains opaque.</span>
-    </div>
-    <div class="problem-conclusion">
-      The real challenge is not intelligence.<br>
-      The real challenge is <em>cooperation</em>.
+    <div class="challenge-row">
+      <div class="challenge-img">
+        <img src="images/problem.png" alt="AI without structure — chaos vs order" loading="lazy">
+      </div>
+      <div class="challenge-text">
+        <div class="problem-text">
+          AI systems are capable and fast.<br><br>
+          Yet most implementations fail &mdash;<br>
+          not because of intelligence,<br>
+          but because of structure.<br><br>
+          No clear boundaries.<br>
+          No cost predictability.<br>
+          No verifiable outputs.<br>
+          No structural workflows.
+        </div>
+        <div class="problem-conclusion">
+          The real challenge is not intelligence.<br>
+          The real challenge is <em>cooperation</em>.
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- FRAMEWORK -->
+<!-- FRAMEWORK — Central image + 4 cards -->
 <section id="framework">
   <div class="container">
     <div class="section-label">Cooperation Framework</div>
+    <div class="framework-intro">
+      A structured approach to human-AI collaboration &mdash;<br>
+      where every execution has scope, cost, and traceability.
+    </div>
+    <div class="framework-visual">
+      <img src="images/framework.png" alt="Layered architecture diagram" loading="lazy">
+    </div>
     <div class="framework-grid">
       <div class="fw-item">
         <div class="fw-num">01</div>
         <h3>Defined Scope</h3>
-        <p>Tasks operate within explicit boundaries. Every agent knows what it should — and should not — do.</p>
+        <p>Tasks operate within explicit boundaries. Every agent knows what it should &mdash; and should not &mdash; do.</p>
       </div>
       <div class="fw-item">
         <div class="fw-num">02</div>
@@ -221,49 +273,61 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
 
 <div class="divider"></div>
 
-<!-- ARCHITECTURE -->
-<section>
-  <div class="container">
-    <div class="section-label">System Architecture</div>
-    <p style="color:var(--gray);font-weight:300;margin-bottom:.5rem;font-size:.95rem">
-      This is not an autonomous black box.<br>
-      It is a controlled environment where every execution has scope, cost, and traceability.
-    </p>
+<!-- ARCHITECTURE EXPLAINER — Video Placeholder + Layer Summary -->
+<div class="video-section">
+  <div class="video-placeholder">
+    <div class="play-btn"></div>
+    <div class="video-title">System Architecture Explainer</div>
+    <div class="video-subtitle">Motion Graphics &middot; 2&ndash;3 min</div>
+    <div class="video-badge">Coming Soon</div>
+  </div>
+  <div class="arch-summary">
     <div class="layers">
       <div class="layer">
-        <div class="layer-num">LAYER 1</div>
-        <div class="layer-content">
-          <h3>Intent Layer</h3>
-          <p>Where human purpose meets structured expression. Goals are decomposed into actionable, bounded tasks.</p>
-        </div>
+        <div class="layer-num">1</div>
+        <div class="layer-name">Intent Layer</div>
+        <div class="layer-desc">Human purpose meets structured expression</div>
       </div>
       <div class="layer">
-        <div class="layer-num">LAYER 2</div>
-        <div class="layer-content">
-          <h3>Agent Layer</h3>
-          <p>Structured execution engines that operate within defined constraints, invoking modular skill packages.</p>
-        </div>
+        <div class="layer-num">2</div>
+        <div class="layer-name">Agent Layer</div>
+        <div class="layer-desc">Structured execution within defined constraints</div>
       </div>
       <div class="layer">
-        <div class="layer-num">LAYER 3</div>
-        <div class="layer-content">
-          <h3>Skill Layer</h3>
-          <p>Composable capability modules. Each skill has clear inputs, outputs, cost profiles, and quality criteria.</p>
-        </div>
+        <div class="layer-num">3</div>
+        <div class="layer-name">Skill Layer</div>
+        <div class="layer-desc">Composable capability modules with clear I/O</div>
       </div>
       <div class="layer">
-        <div class="layer-num">LAYER 4</div>
-        <div class="layer-content">
-          <h3>Verification Layer</h3>
-          <p>Every output is validated against expectations. Anomalies are caught before they propagate.</p>
-        </div>
+        <div class="layer-num">4</div>
+        <div class="layer-name">Verification Layer</div>
+        <div class="layer-desc">Every output validated against expectations</div>
       </div>
       <div class="layer">
-        <div class="layer-num">LAYER 5</div>
-        <div class="layer-content">
-          <h3>Output Layer</h3>
-          <p>Verified results delivered with full provenance. You know what was done, why, and at what cost.</p>
-        </div>
+        <div class="layer-num">5</div>
+        <div class="layer-name">Output Layer</div>
+        <div class="layer-desc">Verified results with full provenance</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SANDBOX — Text left, image right -->
+<section>
+  <div class="container">
+    <div class="section-label">Sandbox</div>
+    <div class="sandbox-row">
+      <div class="sandbox-text">
+        <h2>A sandbox for <strong>cooperative intelligence</strong></h2>
+        <p>
+          Where workflows are visible, constraints inspectable,
+          and execution paths understandable.<br><br>
+          Our design philosophy is transparent &mdash; core components
+          and skill modules are available for exploration and contribution.
+        </p>
+      </div>
+      <div class="sandbox-img">
+        <img src="images/sandbox.png" alt="Interactive modular skill blocks" loading="lazy">
       </div>
     </div>
   </div>
@@ -271,47 +335,51 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
 
 <div class="divider"></div>
 
-<!-- PROJECTS -->
+<!-- LIVE PROJECTS — 3 cards -->
 <section id="projects">
   <div class="container">
     <div class="section-label">Live Projects</div>
-    <p style="color:var(--gray);font-weight:300;margin-bottom:.5rem;font-size:.95rem">
+    <p style="color:var(--gray);font-weight:300;font-size:.95rem;margin-bottom:0">
       Systems built on this framework, running in production.
     </p>
     <div class="project-grid">
-      <a href="https://ai-cooperation.github.io/ai100/" class="project-item" target="_blank">
-        <div>
+      <a href="https://ai-cooperation.github.io/ai100/" class="project-card" target="_blank">
+        <div class="card-visual">
+          <div class="card-icon">&#127891;</div>
+        </div>
+        <div class="card-body">
           <div class="proj-label">Education</div>
           <h3>AI 100 Lectures</h3>
-          <p>100 structured AI lectures with podcast, visual diagrams, and Cornell notes. iPAS certification aligned.</p>
+          <p>100 structured AI lectures with podcast, diagrams, and Cornell notes.</p>
         </div>
-        <span class="proj-arrow">&rarr;</span>
       </a>
-      <a href="https://ai-cooperation.github.io/sustainability-100/" class="project-item" target="_blank">
-        <div>
+      <a href="https://ai-cooperation.github.io/sustainability-100/" class="project-card" target="_blank">
+        <div class="card-visual">
+          <div class="card-icon">&#127758;</div>
+        </div>
+        <div class="card-body">
           <div class="proj-label">Sustainability</div>
           <h3>Sustainability 100</h3>
-          <p>100-episode series on ESG, net-zero, and carbon management. AI-generated podcasts, infographics, and video.</p>
+          <p>100-episode series on ESG, net-zero, and carbon management with AI podcasts.</p>
         </div>
-        <span class="proj-arrow">&rarr;</span>
       </a>
-      <a href="https://ai-cooperation.github.io/foreclosure-map/" class="project-item" target="_blank">
-        <div>
-          <div class="proj-label">Real Estate</div>
-          <h3>Foreclosure Map Taiwan</h3>
-          <p>Real-time foreclosure property map covering all 22 district courts. Auto-updated weekly from judicial announcements.</p>
+      <a href="https://ai-cooperation.github.io/foreclosure-map/" class="project-card" target="_blank">
+        <div class="card-visual">
+          <div class="card-icon">&#127968;</div>
         </div>
-        <span class="proj-arrow">&rarr;</span>
+        <div class="card-body">
+          <div class="proj-label">Real Estate</div>
+          <h3>Foreclosure Map</h3>
+          <p>Real-time foreclosure property map covering all 22 Taiwan district courts.</p>
+        </div>
       </a>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- VISION -->
-<section>
-  <div class="container">
+<!-- VISION — Full-bleed background image -->
+<section class="vision">
+  <div class="vision-content">
     <div class="vision-text">
       When AI becomes abundant and cheap,<br>
       <strong>intelligence itself stops being the advantage.</strong>
@@ -333,11 +401,11 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
 </footer>
 
 <script>
-window.addEventListener("scroll",function(){
-  document.getElementById("navbar").classList.toggle("scrolled",window.scrollY>50);
+window.addEventListener('scroll',function(){
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
 });
-document.querySelectorAll(".nav-links a").forEach(function(a){
-  a.addEventListener("click",function(){document.querySelector(".nav-links").classList.remove("open")});
+document.querySelectorAll('.nav-links a').forEach(function(a){
+  a.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open')});
 });
 </script>
 </body>
