@@ -97,9 +97,14 @@ nav.scrolled{background:rgba(12,15,20,.92);backdrop-filter:blur(20px);padding:1r
 .video-placeholder img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .video-placeholder .video-overlay{position:absolute;inset:0;background:rgba(12,15,20,.6);transition:background .3s}
 .video-placeholder:hover .video-overlay{background:rgba(12,15,20,.5)}
-.play-btn{width:76px;height:76px;border-radius:50%;border:2px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;position:relative;z-index:2;transition:all .3s}
-.video-placeholder:hover .play-btn{border-color:rgba(255,255,255,.4);transform:scale(1.05)}
+.play-btn{width:76px;height:76px;border-radius:50%;border:2px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;position:relative;z-index:2;transition:all .3s;cursor:pointer}
+.video-placeholder:hover .play-btn,.video-play-overlay:hover .play-btn{border-color:rgba(255,255,255,.4);transform:scale(1.05)}
 .play-btn::after{content:"";width:0;height:0;border-style:solid;border-width:14px 0 14px 22px;border-color:transparent transparent transparent rgba(255,255,255,.5);margin-left:4px}
+/* Video player (real video) */
+.video-player{max-width:900px;margin:0 auto;aspect-ratio:16/9;max-height:480px;border-radius:16px;overflow:hidden;position:relative;cursor:pointer}
+.video-player video{width:100%;height:100%;object-fit:cover}
+.video-play-overlay{position:absolute;inset:0;background:rgba(12,15,20,.5);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;transition:opacity .4s;z-index:2}
+.video-player.playing .video-play-overlay{opacity:0;pointer-events:none}
 .video-info{position:relative;z-index:2;text-align:center}
 .video-title{font-size:1.15rem;font-weight:500;color:var(--white);letter-spacing:1px}
 .video-subtitle{font-size:.9rem;color:var(--gray);letter-spacing:1px;margin-top:.3rem}
@@ -246,16 +251,16 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
 
 <!-- ==================== BRAND FILM ==================== -->
 <div class="video-section">
-  <div class="video-placeholder">
-    <img src="images/video-brand.png" alt="Brand Film thumbnail" loading="lazy">
-    <div class="video-overlay"></div>
-    <div class="play-btn"></div>
-    <div class="video-info">
-      <div class="video-title" data-lang="zh">為什麼合作比智慧更重要</div>
-      <div class="video-title" data-lang="en">Why Cooperation Matters</div>
-      <div class="video-subtitle" data-lang="zh">品牌影片 &middot; 90 秒</div>
-      <div class="video-subtitle" data-lang="en">Brand Film &middot; 90 sec</div>
-      <div class="video-badge">Coming Soon</div>
+  <div class="video-player" id="brand-video">
+    <video poster="images/video-brand.png" preload="metadata" playsinline loop muted>
+      <source src="videos/brand-film.mp4" type="video/mp4">
+    </video>
+    <div class="video-play-overlay" id="brand-overlay" onclick="toggleVideo('brand-video')">
+      <div class="play-btn"></div>
+      <div class="video-info">
+        <div class="video-title" data-lang="zh">為什麼合作比智慧更重要</div>
+        <div class="video-title" data-lang="en">Why Cooperation Matters</div>
+      </div>
     </div>
   </div>
 </div>
@@ -558,6 +563,25 @@ function setLang(lang){
   var saved=localStorage.getItem('lang');
   if(saved)setLang(saved);
 })();
+// Video player
+function toggleVideo(id){
+  var wrap=document.getElementById(id);
+  var vid=wrap.querySelector('video');
+  if(vid.paused){
+    vid.muted=false;vid.play();wrap.classList.add('playing');
+  }else{
+    vid.pause();wrap.classList.remove('playing');
+  }
+}
+document.querySelectorAll('.video-player video').forEach(function(v){
+  v.addEventListener('click',function(){
+    var wrap=v.closest('.video-player');
+    v.pause();wrap.classList.remove('playing');
+  });
+  v.addEventListener('ended',function(){
+    v.closest('.video-player').classList.remove('playing');
+  });
+});
 </script>
 </body>
 </html>
