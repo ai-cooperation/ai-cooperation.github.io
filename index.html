@@ -54,17 +54,17 @@
 html{scroll-behavior:smooth}
 body{font-family:Inter,'Noto Sans TC',sans-serif;background:var(--bg);color:var(--white);line-height:1.8;overflow-x:hidden}
 
-/* i18n: hide inactive language */
-[data-lang="en"]{display:none}
-html[lang="en"] [data-lang="en"]{display:block}
-html[lang="en"] [data-lang="zh"]{display:none}
-/* inline elements */
-span[data-lang="en"],a[data-lang="en"]{display:none}
-html[lang="en"] span[data-lang="en"],html[lang="en"] a[data-lang="en"]{display:inline}
-html[lang="en"] span[data-lang="zh"],html[lang="en"] a[data-lang="zh"]{display:none}
-/* flex items stay flex */
-html[lang="en"] div.challenge-row[data-lang="en"],
-html[lang="en"] div.sandbox-row[data-lang="en"]{display:flex}
+/* i18n: hide inactive language — !important overrides display:flex/grid */
+[data-lang="en"]{display:none!important}
+html[lang="en"] [data-lang="en"]{display:block!important}
+html[lang="en"] [data-lang="zh"]{display:none!important}
+span[data-lang="en"],a[data-lang="en"]{display:none!important}
+html[lang="en"] span[data-lang="en"],html[lang="en"] a[data-lang="en"]{display:inline!important}
+html[lang="en"] span[data-lang="zh"],html[lang="en"] a[data-lang="zh"]{display:none!important}
+/* restore correct display types for flex/grid containers in EN mode */
+html[lang="en"] .challenge-row[data-lang="en"],
+html[lang="en"] .sandbox-row[data-lang="en"]{display:flex!important}
+html[lang="en"] .framework-grid[data-lang="en"]{display:grid!important}
 
 /* LANG SWITCH */
 .lang-switch{display:flex;gap:2px;background:rgba(255,255,255,.06);border-radius:6px;padding:2px;margin-left:1rem}
