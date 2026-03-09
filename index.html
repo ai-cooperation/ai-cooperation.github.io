@@ -252,7 +252,8 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
 <!-- ==================== BRAND FILM ==================== -->
 <div class="video-section">
   <div class="video-player" id="brand-video">
-    <video poster="images/video-brand.png" preload="metadata" playsinline loop muted>
+    <video poster="images/video-brand.png" preload="metadata" playsinline loop muted
+           data-src-zh="videos/brand-film.mp4" data-src-en="videos/brand-film-en.mp4">
       <source src="videos/brand-film.mp4" type="video/mp4">
     </video>
     <div class="video-play-overlay" id="brand-overlay" onclick="toggleVideo('brand-video')">
@@ -558,6 +559,18 @@ function setLang(lang){
   document.getElementById('btn-zh').classList.toggle('active',lang==='zh');
   document.getElementById('btn-en').classList.toggle('active',lang==='en');
   localStorage.setItem('lang',lang);
+  // Switch video source based on language
+  document.querySelectorAll('video[data-src-zh]').forEach(function(v){
+    var newSrc=v.getAttribute('data-src-'+lang);
+    if(newSrc && v.querySelector('source').getAttribute('src')!==newSrc){
+      var wasPlaying=!v.paused;
+      var time=v.currentTime;
+      v.querySelector('source').setAttribute('src',newSrc);
+      v.load();
+      v.currentTime=time;
+      if(wasPlaying)v.play();
+    }
+  });
 }
 (function(){
   var saved=localStorage.getItem('lang');
