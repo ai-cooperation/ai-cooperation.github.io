@@ -72,9 +72,6 @@ html[lang="en"] [data-lang="zh"]{display:none!important}
 span[data-lang="en"],a[data-lang="en"]{display:none!important}
 html[lang="en"] span[data-lang="en"],html[lang="en"] a[data-lang="en"]{display:inline!important}
 html[lang="en"] span[data-lang="zh"],html[lang="en"] a[data-lang="zh"]{display:none!important}
-html[lang="en"] .challenge-row[data-lang="en"],
-html[lang="en"] .sandbox-row[data-lang="en"]{display:flex!important}
-html[lang="en"] .framework-grid[data-lang="en"]{display:grid!important}
 
 /* LANG SWITCH */
 .lang-switch{display:flex;gap:2px;background:rgba(255,255,255,.06);border-radius:6px;padding:2px;margin-left:1rem}
@@ -127,48 +124,10 @@ section{padding:7rem 2rem}
 .section-title{font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:600;margin-bottom:2rem;letter-spacing:1px;background:linear-gradient(135deg,var(--white),var(--gray));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .divider{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:0 auto;max-width:600px}
 
-/* CHALLENGE */
-.challenge-row{display:flex;gap:4rem;align-items:center;margin-top:2.5rem}
-.challenge-img{flex:1;min-width:0}
-.challenge-img img{width:100%;border-radius:12px;opacity:.9}
-.challenge-text{flex:1;min-width:0}
-.problem-text{font-size:1.25rem;font-weight:400;line-height:2.2;color:var(--gray)}
-.problem-conclusion{margin-top:2rem;font-size:1.5rem;font-weight:500;line-height:1.8;color:var(--white)}
-.problem-conclusion em{font-style:normal;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-
-/* FRAMEWORK */
-.framework-intro{text-align:center;color:var(--gray);font-weight:400;font-size:1.1rem;margin-bottom:3rem;line-height:2.2}
-.framework-visual{text-align:center;margin-bottom:3rem}
-.framework-visual img{max-width:620px;width:100%;border-radius:12px;opacity:.9}
-.framework-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
-.fw-item{padding:2rem;border:1px solid var(--line);border-radius:12px;transition:all .3s}
-.fw-item:hover{border-color:rgba(74,158,255,.2);background:rgba(74,158,255,.03)}
-.fw-item .fw-num{font-size:1rem;color:var(--blue);letter-spacing:3px;font-weight:600;margin-bottom:.8rem}
-.fw-item h3{font-size:1.2rem;font-weight:600;margin-bottom:.6rem}
-.fw-item p{font-size:1.05rem;color:var(--gray);line-height:1.9;font-weight:400}
-
-/* ARCH SUMMARY */
-.arch-summary{max-width:900px;margin:3rem auto 0}
-.layers{margin-top:1.5rem}
-.layer{display:flex;align-items:flex-start;gap:2rem;padding:1.3rem 0;border-bottom:1px solid var(--line)}
-.layer:last-child{border-bottom:none}
-.layer-num{font-size:1rem;color:var(--blue);letter-spacing:2px;font-weight:600;min-width:24px;padding-top:.3rem}
-.layer-name{font-size:1.1rem;font-weight:500;min-width:140px}
-.layer-desc{font-size:1.05rem;color:var(--gray);font-weight:400}
-
-/* SANDBOX */
-.sandbox-row{display:flex;gap:4rem;align-items:center;margin-top:2.5rem}
-.sandbox-text{flex:1;min-width:0}
-.sandbox-text h2{font-size:1.9rem;font-weight:600;line-height:1.6;margin-bottom:1.5rem}
-.sandbox-text h2 strong{font-weight:600}
-.sandbox-text p{font-size:1.15rem;color:var(--gray);line-height:2.2;font-weight:400}
-.sandbox-img{flex:1;min-width:0}
-.sandbox-img img{width:100%;border-radius:12px;opacity:.9}
-
 /* PROJECTS */
 .projects-desc{color:var(--gray);font-weight:400;font-size:1.1rem;line-height:2}
-.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:3rem}
-.project-card{border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--white);transition:all .3s}
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.project-card{border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--white);transition:all .3s;cursor:pointer}
 .project-card:hover{border-color:rgba(74,158,255,.25);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
 .card-visual{height:170px;overflow:hidden;position:relative;border-bottom:1px solid var(--line)}
 .card-visual img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
@@ -177,6 +136,35 @@ section{padding:7rem 2rem}
 .proj-label{font-size:1rem;color:var(--blue);letter-spacing:2px;font-weight:600;text-transform:uppercase}
 .project-card h3{font-size:1.1rem;font-weight:500;margin:.5rem 0}
 .project-card p{font-size:1rem;color:var(--gray);font-weight:400;line-height:1.8}
+
+/* COMING SOON CARD */
+.project-card.coming-soon{opacity:.55;cursor:default}
+.project-card.coming-soon:hover{border-color:var(--line);transform:none;box-shadow:none}
+.card-visual-placeholder{height:170px;overflow:hidden;position:relative;border-bottom:1px solid var(--line);background:linear-gradient(135deg,var(--bg2) 0%,var(--bg3) 50%,rgba(74,158,255,.05) 100%);display:flex;align-items:center;justify-content:center}
+.card-visual-placeholder .coming-icon{font-size:2.5rem;opacity:.3;color:var(--gray)}
+
+/* MODAL */
+.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;display:none;align-items:center;justify-content:center;padding:1.5rem;animation:modalFadeIn .25s ease}
+.modal-backdrop.active{display:flex}
+@keyframes modalFadeIn{from{opacity:0}to{opacity:1}}
+.modal-panel{background:var(--bg3);border:1px solid var(--line);border-radius:16px;max-width:560px;width:100%;max-height:90vh;overflow-y:auto;position:relative;animation:modalSlideIn .25s ease}
+@keyframes modalSlideIn{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-close{position:absolute;top:1rem;right:1rem;background:rgba(0,0,0,.5);border:1px solid var(--line);color:var(--gray);width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;z-index:3;transition:all .2s}
+.modal-close:hover{color:var(--white);border-color:rgba(255,255,255,.2)}
+.modal-image{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:16px 16px 0 0;display:block}
+.modal-body{padding:1.8rem}
+.modal-label{font-size:1rem;color:var(--blue);letter-spacing:2px;font-weight:600;text-transform:uppercase;margin-bottom:.4rem}
+.modal-title{font-size:1.4rem;font-weight:600;margin-bottom:1.2rem}
+.modal-tech-title{font-size:.9rem;color:var(--gray);letter-spacing:1px;text-transform:uppercase;font-weight:600;margin-bottom:.8rem}
+.modal-tech{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.8rem}
+.modal-tech li{font-size:.9rem;color:var(--gray);background:rgba(74,158,255,.08);border:1px solid rgba(74,158,255,.15);border-radius:6px;padding:.35rem .8rem;font-weight:400}
+.modal-visit{display:inline-block;color:var(--blue);text-decoration:none;font-size:1rem;font-weight:500;letter-spacing:1px;padding:.6rem 1.4rem;border:1px solid rgba(74,158,255,.3);border-radius:8px;transition:all .2s}
+.modal-visit:hover{background:rgba(74,158,255,.1);border-color:rgba(74,158,255,.5)}
+.modal-dev-badge{display:inline-block;font-size:.95rem;color:var(--gray);letter-spacing:1px;padding:.6rem 1.4rem;border:1px solid var(--line);border-radius:8px}
+
+/* TOAST */
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--bg3);border:1px solid var(--line);color:var(--gray);padding:.8rem 1.6rem;border-radius:8px;font-size:.95rem;z-index:300;opacity:0;transition:all .3s;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
 /* VISION */
 .vision{padding:10rem 2rem;position:relative;background:url('images/vision.png') center/cover no-repeat}
@@ -201,11 +189,12 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
   .nav-toggle{display:block}
   .lang-switch{margin-left:auto;margin-right:.5rem}
   section{padding:4rem 1.5rem}
-  .challenge-row,.sandbox-row{flex-direction:column;gap:2rem}
-  .framework-grid{grid-template-columns:1fr}
   .project-grid{grid-template-columns:1fr}
-  .layer{flex-direction:column;gap:.5rem}
   .vision{padding:6rem 1.5rem}
+  .modal-panel{max-width:100%;border-radius:12px}
+}
+@media(min-width:769px) and (max-width:1024px){
+  .project-grid{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
@@ -215,14 +204,6 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
   <a href="#" class="nav-logo">Cooperation</a>
   <div class="nav-right">
     <ul class="nav-links">
-      <li>
-        <a href="#challenge" data-lang="zh">為什麼</a>
-        <a href="#challenge" data-lang="en">Why</a>
-      </li>
-      <li>
-        <a href="#framework" data-lang="zh">框架</a>
-        <a href="#framework" data-lang="en">Framework</a>
-      </li>
       <li>
         <a href="#projects" data-lang="zh">專案</a>
         <a href="#projects" data-lang="en">Projects</a>
@@ -277,215 +258,16 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
   </div>
 </div>
 
-<!-- ==================== THE CHALLENGE ==================== -->
-<section id="challenge">
-  <div class="container">
-    <div class="section-title" data-lang="zh">核心挑戰</div>
-    <div class="section-title" data-lang="en">The Challenge</div>
-
-    <div class="challenge-row" data-lang="zh">
-      <div class="challenge-img">
-        <img src="images/problem.png" alt="混沌與秩序的對比" loading="lazy">
-      </div>
-      <div class="challenge-text">
-        <div class="problem-text">
-          AI 系統既強大又快速<br><br>
-          然而大多數導入都失敗了 &mdash;<br>
-          不是因為不夠聰明<br>
-          而是因為缺乏結構<br><br>
-          沒有明確邊界<br>
-          成本無法預測<br>
-          產出難以驗證<br>
-          流程缺乏定義
-        </div>
-        <div class="problem-conclusion">
-          真正的挑戰不是智慧<br>
-          而是<em>協作</em>
-        </div>
-      </div>
-    </div>
-
-    <div class="challenge-row" data-lang="en">
-      <div class="challenge-img">
-        <img src="images/problem.png" alt="AI without structure — chaos vs order" loading="lazy">
-      </div>
-      <div class="challenge-text">
-        <div class="problem-text">
-          AI systems are capable and fast<br><br>
-          Yet most implementations fail &mdash;<br>
-          not because of intelligence<br>
-          but because of structure<br><br>
-          No clear boundaries<br>
-          No cost predictability<br>
-          No verifiable outputs<br>
-          No structural workflows
-        </div>
-        <div class="problem-conclusion">
-          The real challenge is not intelligence<br>
-          The real challenge is <em>cooperation</em>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ==================== FRAMEWORK ==================== -->
-<section id="framework">
-  <div class="container">
-    <div class="section-title" data-lang="zh">協作框架</div>
-    <div class="section-title" data-lang="en">Cooperation Framework</div>
-
-    <div class="framework-intro" data-lang="zh">
-      一套結構化的人機協作方法 &mdash;<br>
-      讓每一次執行都有範疇、成本與可追蹤性
-    </div>
-    <div class="framework-intro" data-lang="en">
-      A structured approach to human-AI collaboration &mdash;<br>
-      where every execution has scope, cost, and traceability
-    </div>
-
-    <div class="framework-visual">
-      <img src="images/framework.png" alt="Layered architecture diagram" loading="lazy">
-    </div>
-
-    <div class="framework-grid" data-lang="zh">
-      <div class="fw-item">
-        <div class="fw-num">01</div>
-        <h3>明確範疇</h3>
-        <p>任務在明確的邊界內運行<br>每個代理都知道自己該做什麼<br>不該做什麼</p>
-      </div>
-      <div class="fw-item">
-        <div class="fw-num">02</div>
-        <h3>可控成本</h3>
-        <p>執行遵守可量測的限制<br>沒有失控的 token 消耗<br>沒有意外帳單<br>沒有無限遞迴</p>
-      </div>
-      <div class="fw-item">
-        <div class="fw-num">03</div>
-        <h3>可驗證流程</h3>
-        <p>工作流程可追蹤、可審查<br>每一條決策路徑都能被檢視、重播與理解</p>
-      </div>
-      <div class="fw-item">
-        <div class="fw-num">04</div>
-        <h3>模組化技能</h3>
-        <p>能力可組合、可重用<br>一次建構<br>跨場景應用<br>持續演進</p>
-      </div>
-    </div>
-
-    <div class="framework-grid" data-lang="en">
-      <div class="fw-item">
-        <div class="fw-num">01</div>
-        <h3>Defined Scope</h3>
-        <p>Tasks operate within explicit boundaries<br>Every agent knows what it should &mdash; and should not &mdash; do</p>
-      </div>
-      <div class="fw-item">
-        <div class="fw-num">02</div>
-        <h3>Controlled Cost</h3>
-        <p>Execution respects measurable limits<br>No runaway tokens, no surprise bills, no uncontrolled recursion</p>
-      </div>
-      <div class="fw-item">
-        <div class="fw-num">03</div>
-        <h3>Verifiable Process</h3>
-        <p>Workflows are traceable and reviewable<br>Every decision path can be inspected, replayed, and understood</p>
-      </div>
-      <div class="fw-item">
-        <div class="fw-num">04</div>
-        <h3>Modular Skills</h3>
-        <p>Capabilities are composable and reusable<br>Build once, apply across contexts, evolve continuously</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ==================== ARCHITECTURE EXPLAINER ==================== -->
-<div class="video-section">
-  <div class="video-placeholder">
-    <img src="images/video-arch.png" alt="Architecture Explainer thumbnail" loading="lazy">
-    <div class="video-overlay"></div>
-    <div class="play-btn"></div>
-    <div class="video-info">
-      <div class="video-title" data-lang="zh">系統架構解說</div>
-      <div class="video-title" data-lang="en">System Architecture Explainer</div>
-      <div class="video-subtitle" data-lang="zh">動態圖解 &middot; 2&ndash;3 分鐘</div>
-      <div class="video-subtitle" data-lang="en">Motion Graphics &middot; 2&ndash;3 min</div>
-      <div class="video-badge">Coming Soon</div>
-    </div>
-  </div>
-  <div class="arch-summary">
-    <div class="section-title" data-lang="zh" style="margin-top:2rem">系統架構</div>
-    <div class="section-title" data-lang="en" style="margin-top:2rem">System Architecture</div>
-    <div class="layers" data-lang="zh">
-      <div class="layer"><div class="layer-num">1</div><div class="layer-name">意圖層</div><div class="layer-desc">人類意圖轉化為結構化表達</div></div>
-      <div class="layer"><div class="layer-num">2</div><div class="layer-name">代理層</div><div class="layer-desc">在定義好的約束中結構化執行</div></div>
-      <div class="layer"><div class="layer-num">3</div><div class="layer-name">技能層</div><div class="layer-desc">可組合的能力模組、明確的輸入輸出</div></div>
-      <div class="layer"><div class="layer-num">4</div><div class="layer-name">驗證層</div><div class="layer-desc">每個輸出都根據預期進行驗證</div></div>
-      <div class="layer"><div class="layer-num">5</div><div class="layer-name">產出層</div><div class="layer-desc">附完整來源的驗證結果</div></div>
-    </div>
-    <div class="layers" data-lang="en">
-      <div class="layer"><div class="layer-num">1</div><div class="layer-name">Intent Layer</div><div class="layer-desc">Human purpose meets structured expression</div></div>
-      <div class="layer"><div class="layer-num">2</div><div class="layer-name">Agent Layer</div><div class="layer-desc">Structured execution within defined constraints</div></div>
-      <div class="layer"><div class="layer-num">3</div><div class="layer-name">Skill Layer</div><div class="layer-desc">Composable capability modules with clear I/O</div></div>
-      <div class="layer"><div class="layer-num">4</div><div class="layer-name">Verification Layer</div><div class="layer-desc">Every output validated against expectations</div></div>
-      <div class="layer"><div class="layer-num">5</div><div class="layer-name">Output Layer</div><div class="layer-desc">Verified results with full provenance</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- ==================== SANDBOX ==================== -->
-<section>
-  <div class="container">
-    <div class="section-title" data-lang="zh">沙盒</div>
-    <div class="section-title" data-lang="en">Sandbox</div>
-
-    <div class="sandbox-row" data-lang="zh">
-      <div class="sandbox-text">
-        <h2>協作智慧的<strong>沙盒環境</strong></h2>
-        <p>
-          工作流程清晰可見<br>
-          約束條件可被檢視<br>
-          執行路徑一目瞭然<br><br>
-          我們的設計哲學是透明的 &mdash;<br>
-          核心組件與技能模組開放探索與貢獻
-        </p>
-      </div>
-      <div class="sandbox-img">
-        <img src="images/sandbox.png" alt="互動式模組化技能方塊" loading="lazy">
-      </div>
-    </div>
-
-    <div class="sandbox-row" data-lang="en">
-      <div class="sandbox-text">
-        <h2>A sandbox for <strong>cooperative intelligence</strong></h2>
-        <p>
-          Where workflows are visible<br>
-          constraints inspectable<br>
-          and execution paths understandable<br><br>
-          Our design philosophy is transparent &mdash;<br>
-          core components and skill modules are available for exploration and contribution
-        </p>
-      </div>
-      <div class="sandbox-img">
-        <img src="images/sandbox.png" alt="Interactive modular skill blocks" loading="lazy">
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
 <!-- ==================== LIVE PROJECTS ==================== -->
 <section id="projects">
   <div class="container">
     <div class="section-title" data-lang="zh">運行中的專案</div>
     <div class="section-title" data-lang="en">Live Projects</div>
-    <p class="projects-desc" data-lang="zh">基於此框架建構<br>已在生產環境中運行的系統</p>
-    <p class="projects-desc" data-lang="en">Systems built on this framework<br>running in production</p>
+    <p class="projects-desc" data-lang="zh">基於此框架建構<br>已在生產環境中運行的系統與開源專案</p>
+    <p class="projects-desc" data-lang="en">Systems built on this framework<br>production systems and open-source projects</p>
 
     <div class="project-grid">
-      <a href="https://ai-cooperation.github.io/ai100/" class="project-card" target="_blank">
+      <div class="project-card" onclick="openModal('ai100')">
         <div class="card-visual">
           <img src="images/proj-ai100.png" alt="AI 100 Lectures" loading="lazy">
         </div>
@@ -497,8 +279,8 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
           <p data-lang="zh">100 堂結構化 AI 課程<br>含 Podcast、視覺圖解與康乃爾筆記<br>對齊 iPAS 認證</p>
           <p data-lang="en">100 structured AI lectures<br>with podcast, diagrams, and Cornell notes<br>iPAS certification aligned</p>
         </div>
-      </a>
-      <a href="https://ai-cooperation.github.io/sustainability-100/" class="project-card" target="_blank">
+      </div>
+      <div class="project-card" onclick="openModal('s100')">
         <div class="card-visual">
           <img src="images/proj-s100.png" alt="Sustainability 100" loading="lazy">
         </div>
@@ -510,8 +292,8 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
           <p data-lang="zh">100 集 ESG、淨零碳排與碳管理系列<br>含 AI Podcast、資訊圖表與影片</p>
           <p data-lang="en">100-episode series on ESG, net-zero, and carbon management<br>with AI podcasts and video</p>
         </div>
-      </a>
-      <a href="https://ai-cooperation.github.io/foreclosure-map/" class="project-card" target="_blank">
+      </div>
+      <div class="project-card" onclick="openModal('foreclosure')">
         <div class="card-visual">
           <img src="images/proj-foreclosure.png" alt="Foreclosure Map" loading="lazy">
         </div>
@@ -523,8 +305,8 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
           <p data-lang="zh">即時法拍屋地圖<br>涵蓋全台 22 個地方法院<br>每週自動更新</p>
           <p data-lang="en">Real-time foreclosure property map<br>covering all 22 Taiwan district courts<br>Auto-updated weekly</p>
         </div>
-      </a>
-      <a href="https://ai-cooperation.github.io/ai-sustainability-platform/" class="project-card" target="_blank">
+      </div>
+      <div class="project-card" onclick="openModal('sustainability')">
         <div class="card-visual">
           <img src="images/proj-sustainability.png" alt="AI Sustainability Platform" loading="lazy">
         </div>
@@ -536,8 +318,8 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
           <p data-lang="zh">31 項資料源即時監控<br>能源、碳排、空品、水資源<br>AI 多代理預測分析</p>
           <p data-lang="en">31 data sources real-time monitoring<br>energy, carbon, air quality, water<br>AI multi-agent forecasting</p>
         </div>
-      </a>
-      <a href="https://aipath.cooperation.tw" class="project-card" target="_blank">
+      </div>
+      <div class="project-card" onclick="openModal('aipath')">
         <div class="card-visual">
           <img src="images/proj-aipath.png" alt="AiPath" loading="lazy">
         </div>
@@ -549,8 +331,8 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
           <p data-lang="zh">L1–L4 四階 AI 能力升級課程<br>從用工具到流程改造<br>含 10+ 實戰模組</p>
           <p data-lang="en">L1–L4 progressive AI capability program<br>from tool usage to process transformation<br>10+ hands-on modules</p>
         </div>
-      </a>
-      <a href="https://paperlab.cooperation.tw" class="project-card" target="_blank">
+      </div>
+      <div class="project-card" onclick="openModal('paperlab')">
         <div class="card-visual">
           <img src="images/proj-paperlab.png" alt="Paper Lab" loading="lazy">
         </div>
@@ -562,7 +344,46 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
           <p data-lang="zh">12 階段論文寫作方法論<br>從概念探索到審稿回覆<br>AI 原生研究工作流</p>
           <p data-lang="en">12-phase paper writing methodology<br>from concept to reviewer response<br>AI-native research workflow</p>
         </div>
-      </a>
+      </div>
+      <div class="project-card" onclick="openModal('gemgate')">
+        <div class="card-visual">
+          <img src="images/proj-gemgate.png" alt="GemGate" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="proj-label" data-lang="zh">AI 治理</div>
+          <div class="proj-label" data-lang="en">AI Governance</div>
+          <h3 data-lang="zh">GemGate</h3>
+          <h3 data-lang="en">GemGate</h3>
+          <p data-lang="zh">AI 輸出品質閘門<br>多模型交叉驗證與事實查核<br>確保每一筆產出可信賴</p>
+          <p data-lang="en">AI output quality gate<br>multi-model cross-verification and fact-checking<br>ensuring every output is trustworthy</p>
+        </div>
+      </div>
+      <div class="project-card coming-soon" onclick="showToast()">
+        <div class="card-visual-placeholder">
+          <div class="coming-icon">&#10697;</div>
+        </div>
+        <div class="card-body">
+          <div class="proj-label" data-lang="zh">即將推出</div>
+          <div class="proj-label" data-lang="en">Coming Soon</div>
+          <h3 data-lang="zh">即將推出</h3>
+          <h3 data-lang="en">Coming Soon</h3>
+          <p data-lang="zh">新專案開發中</p>
+          <p data-lang="en">New project in development</p>
+        </div>
+      </div>
+      <div class="project-card coming-soon" onclick="showToast()">
+        <div class="card-visual-placeholder">
+          <div class="coming-icon">&#10697;</div>
+        </div>
+        <div class="card-body">
+          <div class="proj-label" data-lang="zh">即將推出</div>
+          <div class="proj-label" data-lang="en">Coming Soon</div>
+          <h3 data-lang="zh">即將推出</h3>
+          <h3 data-lang="en">Coming Soon</h3>
+          <p data-lang="zh">新專案開發中</p>
+          <p data-lang="en">New project in development</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -599,19 +420,40 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
   <div class="footer-copy">&copy; 2026 Cooperation</div>
 </footer>
 
+<!-- ==================== PROJECT MODAL ==================== -->
+<div class="modal-backdrop" id="project-modal" onclick="closeModal(event)">
+  <div class="modal-panel" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <img class="modal-image" id="modal-image" src="" alt="">
+    <div class="modal-body">
+      <div class="modal-label" id="modal-label"></div>
+      <div class="modal-title" id="modal-title"></div>
+      <div class="modal-tech-title" data-lang="zh">技術與流程</div>
+      <div class="modal-tech-title" data-lang="en">Technologies &amp; Processes</div>
+      <ul class="modal-tech" id="modal-tech"></ul>
+      <div id="modal-action"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== TOAST ==================== -->
+<div class="toast" id="toast"></div>
+
 <script>
+/* ---- Nav scroll ---- */
 window.addEventListener('scroll',function(){
   document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
 });
 document.querySelectorAll('.nav-links a').forEach(function(a){
   a.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open')});
 });
+
+/* ---- Language ---- */
 function setLang(lang){
   document.documentElement.lang=lang;
   document.getElementById('btn-zh').classList.toggle('active',lang==='zh');
   document.getElementById('btn-en').classList.toggle('active',lang==='en');
   localStorage.setItem('lang',lang);
-  // Switch video source based on language
   document.querySelectorAll('video[data-src-zh]').forEach(function(v){
     var newSrc=v.getAttribute('data-src-'+lang);
     if(newSrc && v.querySelector('source').getAttribute('src')!==newSrc){
@@ -623,12 +465,17 @@ function setLang(lang){
       if(wasPlaying)v.play();
     }
   });
+  // Refresh modal if open
+  if(document.getElementById('project-modal').classList.contains('active') && currentModalId){
+    populateModal(currentModalId);
+  }
 }
 (function(){
   var saved=localStorage.getItem('lang');
   if(saved)setLang(saved);
 })();
-// Video player
+
+/* ---- Video player ---- */
 function toggleVideo(id){
   var wrap=document.getElementById(id);
   var vid=wrap.querySelector('video');
@@ -647,6 +494,145 @@ document.querySelectorAll('.video-player video').forEach(function(v){
     v.closest('.video-player').classList.remove('playing');
   });
 });
+
+/* ---- Project Data ---- */
+var projectData = {
+  ai100: {
+    image: 'images/proj-ai100.png',
+    label: { zh: 'AI 教育', en: 'AI Education' },
+    title: { zh: 'AI 100 講', en: 'AI 100 Lectures' },
+    tech: {
+      zh: ['AI Podcast 自動生成', '康乃爾筆記系統', '視覺化圖解', 'iPAS 能力對齊'],
+      en: ['AI Podcast auto-generation', 'Cornell note system', 'Visual diagrams', 'iPAS competency alignment']
+    },
+    url: 'https://ai-cooperation.github.io/ai100/'
+  },
+  s100: {
+    image: 'images/proj-s100.png',
+    label: { zh: '永續發展', en: 'Sustainability' },
+    title: { zh: '永續 100 講', en: 'Sustainability 100' },
+    tech: {
+      zh: ['AI Podcast 生成', 'ESG 知識圖譜', '碳管理資料庫', '多媒體內容產線'],
+      en: ['AI Podcast generation', 'ESG knowledge graph', 'Carbon management database', 'Multimedia content pipeline']
+    },
+    url: 'https://ai-cooperation.github.io/sustainability-100/'
+  },
+  foreclosure: {
+    image: 'images/proj-foreclosure.png',
+    label: { zh: '不動產', en: 'Real Estate' },
+    title: { zh: '法拍地圖', en: 'Foreclosure Map' },
+    tech: {
+      zh: ['法院資料自動爬取', '地理資訊視覺化', '每週排程更新', '開放資料整合'],
+      en: ['Court data auto-scraping', 'GIS visualization', 'Weekly scheduled updates', 'Open data integration']
+    },
+    url: 'https://ai-cooperation.github.io/foreclosure-map/'
+  },
+  sustainability: {
+    image: 'images/proj-sustainability.png',
+    label: { zh: '永續智慧', en: 'Sustainability Intelligence' },
+    title: { zh: '永續決策平台', en: 'Sustainability Platform' },
+    tech: {
+      zh: ['31 項即時資料源', 'AI 多代理預測', '能源與碳排監控', '決策儀表板'],
+      en: ['31 real-time data sources', 'AI multi-agent forecasting', 'Energy & carbon monitoring', 'Decision dashboard']
+    },
+    url: 'https://ai-cooperation.github.io/ai-sustainability-platform/'
+  },
+  aipath: {
+    image: 'images/proj-aipath.png',
+    label: { zh: '課程培訓', en: 'Training' },
+    title: { zh: 'AI 學習路徑', en: 'AiPath' },
+    tech: {
+      zh: ['L1-L4 漸進式課程設計', '實戰模組', '企業內訓體系', '能力評估框架'],
+      en: ['L1-L4 progressive curriculum', 'Hands-on modules', 'Enterprise training system', 'Competency assessment framework']
+    },
+    url: 'https://aipath.cooperation.tw'
+  },
+  paperlab: {
+    image: 'images/proj-paperlab.png',
+    label: { zh: '論文方法學', en: 'Research Methodology' },
+    title: { zh: '寫論文找方法', en: 'Paper Lab' },
+    tech: {
+      zh: ['12 階段方法論', 'AI 原生研究工作流', 'DOI 三重驗證', '多模型交叉審查'],
+      en: ['12-phase methodology', 'AI-native research workflow', 'DOI triple verification', 'Multi-model cross-review']
+    },
+    url: 'https://paperlab.cooperation.tw'
+  },
+  gemgate: {
+    image: 'images/proj-gemgate.png',
+    label: { zh: 'AI 治理', en: 'AI Governance' },
+    title: { zh: 'GemGate', en: 'GemGate' },
+    tech: {
+      zh: ['多模型品質閘門', '自動事實查核', '輸出一致性驗證', 'API 整合'],
+      en: ['Multi-model quality gate', 'Automated fact-checking', 'Output consistency verification', 'API integration']
+    },
+    url: null
+  }
+};
+
+/* ---- Modal ---- */
+var currentModalId = null;
+
+function getLang(){
+  return document.documentElement.lang === 'en' ? 'en' : 'zh';
+}
+
+function populateModal(id){
+  var d = projectData[id];
+  if(!d) return;
+  var lang = getLang();
+  document.getElementById('modal-image').src = d.image;
+  document.getElementById('modal-image').alt = d.title[lang];
+  document.getElementById('modal-label').textContent = d.label[lang];
+  document.getElementById('modal-title').textContent = d.title[lang];
+
+  var techList = document.getElementById('modal-tech');
+  techList.innerHTML = '';
+  d.tech[lang].forEach(function(t){
+    var li = document.createElement('li');
+    li.textContent = t;
+    techList.appendChild(li);
+  });
+
+  var actionDiv = document.getElementById('modal-action');
+  if(d.url){
+    actionDiv.innerHTML = '<a href="' + d.url + '" class="modal-visit" target="_blank">' +
+      (lang === 'zh' ? '前往專案 &rarr;' : 'Visit Project &rarr;') + '</a>';
+  } else {
+    actionDiv.innerHTML = '<span class="modal-dev-badge">' +
+      (lang === 'zh' ? '開發中' : 'In Development') + '</span>';
+  }
+}
+
+function openModal(id){
+  if(!projectData[id]) return;
+  currentModalId = id;
+  populateModal(id);
+  document.getElementById('project-modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e){
+  if(e && e.target && e.target !== document.getElementById('project-modal') && !e.target.classList.contains('modal-close')) return;
+  document.getElementById('project-modal').classList.remove('active');
+  document.body.style.overflow = '';
+  currentModalId = null;
+}
+
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeModal();
+});
+
+/* ---- Toast ---- */
+var toastTimer = null;
+function showToast(){
+  var lang = getLang();
+  var msg = lang === 'zh' ? '即將推出，敬請期待' : 'Coming soon, stay tuned';
+  var el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ el.classList.remove('show'); }, 2000);
+}
 </script>
 </body>
 </html>
