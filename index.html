@@ -347,7 +347,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
       </div>
       <div class="project-card" onclick="openModal('gemgate')">
         <div class="card-visual">
-          <img src="images/proj-gemgate.png" alt="GemGate" loading="lazy">
+          <img src="images/proj-gemgate.png?v=2" alt="GemGate" loading="lazy">
         </div>
         <div class="card-body">
           <div class="proj-label" data-lang="zh">AI 基礎設施</div>
@@ -359,8 +359,8 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
         </div>
       </div>
       <div class="project-card coming-soon" onclick="showToast()">
-        <div class="card-visual-placeholder">
-          <div class="coming-icon">&#10697;</div>
+        <div class="card-visual">
+          <img src="images/proj-coming1.png" alt="Coming Soon" loading="lazy">
         </div>
         <div class="card-body">
           <div class="proj-label" data-lang="zh">即將推出</div>
@@ -372,8 +372,8 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
         </div>
       </div>
       <div class="project-card coming-soon" onclick="showToast()">
-        <div class="card-visual-placeholder">
-          <div class="coming-icon">&#10697;</div>
+        <div class="card-visual">
+          <img src="images/proj-coming2.png" alt="Coming Soon" loading="lazy">
         </div>
         <div class="card-body">
           <div class="proj-label" data-lang="zh">即將推出</div>
@@ -397,6 +397,8 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
       <br><br>
       你只管勇往直前<br>
       <span class="accent">與 AI 協作的架構我們來建</span>
+      <br><br>
+      <a href="https://cooperation.tw" style="color:var(--gray);text-decoration:none;font-size:1.1rem;letter-spacing:2px;transition:color .3s" onmouseover="this.style.color='var(--blue)'" onmouseout="this.style.color='var(--gray)'">cooperation.tw</a>
     </div>
     <div class="vision-text" data-lang="en">
       When AI becomes available to everyone<br>
@@ -404,6 +406,8 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
       <br><br>
       You focus on forging ahead<br>
       <span class="accent">we'll build the architecture of cooperation</span>
+      <br><br>
+      <a href="https://cooperation.tw" style="color:var(--gray);text-decoration:none;font-size:1.1rem;letter-spacing:2px;transition:color .3s" onmouseover="this.style.color='var(--blue)'" onmouseout="this.style.color='var(--gray)'">cooperation.tw</a>
     </div>
   </div>
 </section>
@@ -558,7 +562,7 @@ var projectData = {
     url: 'https://paperlab.cooperation.tw'
   },
   gemgate: {
-    image: 'images/proj-gemgate.png',
+    image: 'images/proj-gemgate.png?v=2',
     label: { zh: 'AI 基礎設施', en: 'AI Infrastructure' },
     title: { zh: 'GemGate', en: 'GemGate' },
     tech: {
