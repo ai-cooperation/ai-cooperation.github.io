@@ -225,7 +225,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
 <section class="hero">
   <div class="hero-content">
     <div class="overline">cooperation.tw</div>
-    <h1 data-lang="zh">打造<strong>人機協作</strong>的基礎架構</h1>
+    <h1 data-lang="zh">打造<strong>人機協作</strong><br>的基礎架構</h1>
     <h1 data-lang="en">Designing the Infrastructure of <strong>Human–AI Cooperation</strong></h1>
     <p class="hero-sub" data-lang="zh">
       從可控代理到模組化技能系統<br>
@@ -293,17 +293,17 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
           <p data-lang="en">100-episode series on ESG, net-zero, and carbon management<br>with AI podcasts and video</p>
         </div>
       </div>
-      <div class="project-card" onclick="openModal('foreclosure')">
+      <div class="project-card" onclick="openModal('kb')">
         <div class="card-visual">
-          <img src="images/proj-foreclosure.png" alt="Foreclosure Map" loading="lazy">
+          <img src="images/proj-kb.png" alt="Knowledge Learning System" loading="lazy">
         </div>
         <div class="card-body">
-          <div class="proj-label" data-lang="zh">不動產</div>
-          <div class="proj-label" data-lang="en">Real Estate</div>
-          <h3 data-lang="zh">法拍地圖</h3>
-          <h3 data-lang="en">Foreclosure Map</h3>
-          <p data-lang="zh">即時法拍屋地圖<br>涵蓋全台 22 個地方法院<br>每週自動更新</p>
-          <p data-lang="en">Real-time foreclosure property map<br>covering all 22 Taiwan district courts<br>Auto-updated weekly</p>
+          <div class="proj-label" data-lang="zh">知識庫</div>
+          <div class="proj-label" data-lang="en">Knowledge Base</div>
+          <h3 data-lang="zh">知識學習系統</h3>
+          <h3 data-lang="en">Knowledge Learning System</h3>
+          <p data-lang="zh">專業領域 AI 知識庫<br>保險、醫療、iPAS AI、淨零碳<br>考生與專業人士的第二大腦</p>
+          <p data-lang="en">Domain-specific AI knowledge bases<br>Insurance, medical, iPAS AI, net-zero<br>Second brain for professionals</p>
         </div>
       </div>
       <div class="project-card" onclick="openModal('sustainability')">
@@ -358,19 +358,19 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
           <p data-lang="en">Free AI API Gateway<br>OpenAI SDK compatible, zero cost<br>Chat / Image / TTS / Vision / Podcast</p>
         </div>
       </div>
-      <a href="https://ai100.cooperation.tw/classroom/host" class="project-card" target="_blank" style="text-decoration:none;color:inherit">
+      <div class="project-card" onclick="openModal('foreclosure')">
         <div class="card-visual">
-          <img src="images/proj-coming1.png" alt="ClassClaw" loading="lazy">
+          <img src="images/proj-foreclosure.png" alt="Foreclosure Map" loading="lazy">
         </div>
         <div class="card-body">
-          <div class="proj-label" data-lang="zh">課堂互動系統</div>
-          <div class="proj-label" data-lang="en">Classroom System</div>
-          <h3 data-lang="zh">ClassClaw</h3>
-          <h3 data-lang="en">ClassClaw</h3>
-          <p data-lang="zh">AI Agent 助教隨時在線<br>訊息牆 · 投票 · 問答即時同步<br>手機就是遙控器，零安裝</p>
-          <p data-lang="en">AI Agent assistant always online<br>Message wall · Polls · Q&A real-time<br>Phone as remote, zero install</p>
+          <div class="proj-label" data-lang="zh">不動產</div>
+          <div class="proj-label" data-lang="en">Real Estate</div>
+          <h3 data-lang="zh">法拍地圖</h3>
+          <h3 data-lang="en">Foreclosure Map</h3>
+          <p data-lang="zh">即時法拍屋地圖<br>涵蓋全台 22 個地方法院<br>每週自動更新</p>
+          <p data-lang="en">Real-time foreclosure property map<br>covering all 22 Taiwan district courts<br>Auto-updated weekly</p>
         </div>
-      </a>
+      </div>
       <div class="project-card coming-soon" onclick="showToast()">
         <div class="card-visual">
           <img src="images/proj-coming2.png" alt="Coming Soon" loading="lazy">
@@ -569,7 +569,20 @@ var projectData = {
       zh: ['免費 Google AI API 閘道', 'OpenAI SDK 相容', 'Chat / 圖片 / TTS / Vision / Podcast', '自助 API Key 註冊', '每 Key 頻率限制與用量追蹤', '雙帳號負載均衡'],
       en: ['Free Google AI API Gateway', 'OpenAI SDK compatible', 'Chat / Image / TTS / Vision / Podcast', 'Self-service API key registration', 'Per-key rate limiting and usage tracking', 'Dual-account round-robin']
     },
-    url: 'http://43.159.131.124:8760/'
+    links: [
+      { url: 'http://43.159.131.124:8760/', label: { zh: '前往 GemGate', en: 'Visit GemGate' } },
+      { url: 'https://ai100.cooperation.tw/classroom/host', label: { zh: '前往 ClassClaw', en: 'Visit ClassClaw' } }
+    ]
+  },
+  kb: {
+    image: 'images/proj-kb.png',
+    label: { zh: '知識庫', en: 'Knowledge Base' },
+    title: { zh: '知識學習系統', en: 'Knowledge Learning System' },
+    tech: {
+      zh: ['保險業知識庫（已上線）', '醫療知識庫（規劃中）', 'iPAS AI 應用規劃師（規劃中）', '淨零碳規劃師（規劃中）', '每日自動爬取行業資訊', 'AI 摘要、分類與索引'],
+      en: ['Insurance KB (live)', 'Medical KB (planned)', 'iPAS AI Practitioner KB (planned)', 'Net-Zero Practitioner KB (planned)', 'Daily industry info crawling', 'AI summarization & indexing']
+    },
+    url: 'https://kb.cooperation.tw'
   }
 };
 
@@ -598,7 +611,12 @@ function populateModal(id){
   });
 
   var actionDiv = document.getElementById('modal-action');
-  if(d.url){
+  if(d.links && d.links.length){
+    actionDiv.innerHTML = d.links.map(function(l){
+      return '<a href="' + l.url + '" class="modal-visit" target="_blank" style="margin-right:.6rem;margin-bottom:.6rem">' +
+        l.label[lang] + ' &rarr;</a>';
+    }).join('');
+  } else if(d.url){
     actionDiv.innerHTML = '<a href="' + d.url + '" class="modal-visit" target="_blank">' +
       (lang === 'zh' ? '前往專案 &rarr;' : 'Visit Project &rarr;') + '</a>';
   } else {
