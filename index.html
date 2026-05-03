@@ -371,17 +371,17 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
           <p data-lang="en">Real-time foreclosure property map<br>covering all 22 Taiwan district courts<br>Auto-updated weekly</p>
         </div>
       </div>
-      <div class="project-card coming-soon" onclick="showToast()">
+      <div class="project-card" onclick="openModal('agent_kb')">
         <div class="card-visual">
-          <img src="images/proj-coming2.png" alt="Coming Soon" loading="lazy">
+          <img src="images/proj-agent-kb.png" alt="Agent KB" loading="lazy">
         </div>
         <div class="card-body">
-          <div class="proj-label" data-lang="zh">即將推出</div>
-          <div class="proj-label" data-lang="en">Coming Soon</div>
-          <h3 data-lang="zh">即將推出</h3>
-          <h3 data-lang="en">Coming Soon</h3>
-          <p data-lang="zh">新專案開發中</p>
-          <p data-lang="en">New project in development</p>
+          <div class="proj-label" data-lang="zh">Agent 知識庫</div>
+          <div class="proj-label" data-lang="en">Agent KB</div>
+          <h3 data-lang="zh">Agent KB</h3>
+          <h3 data-lang="en">Agent KB</h3>
+          <p data-lang="zh">給 AI 的教學知識庫<br>4-layer 案例 + 跨領域 rules + 94 skills<br>對話內化，不只搜尋查詢</p>
+          <p data-lang="en">Teaching KB for AI agents<br>4-layer cases + rules + 94 skills<br>Internalize through dialogue, not lookup</p>
         </div>
       </div>
     </div>
@@ -583,6 +583,16 @@ var projectData = {
       en: ['Insurance KB (live)', 'Medical KB (planned)', 'iPAS AI Practitioner KB (planned)', 'Net-Zero Practitioner KB (planned)', 'Daily industry info crawling', 'AI summarization & indexing']
     },
     url: 'https://kb.cooperation.tw'
+  },
+  agent_kb: {
+    image: 'images/proj-agent-kb.png',
+    label: { zh: 'Agent 知識庫', en: 'Agent KB' },
+    title: { zh: 'Agent KB', en: 'Agent KB' },
+    tech: {
+      zh: ['4-layer 案例結構（給人 + 給 AI 雙視角）', '14 條跨領域 rules（多案例抽出可遷移原則）', '94+ skills（Claude Code / Codex 工作流）', 'MCP 連線（Claude.ai / Cursor 直接餵入）', '個人筆記 + zip 匯出（對齊 kb-vault schema）', '不擁有原始教材，擁有跨領域提煉'],
+      en: ['4-layer case structure (human + AI dual view)', '14 cross-domain rules (extracted from multi-cases)', '94+ skills (Claude Code / Codex workflows)', 'MCP connector (paste into Claude.ai / Cursor)', 'Personal notes + zip export (kb-vault schema)', 'Owns the cross-domain distillation, not raw content']
+    },
+    url: 'https://agent-kb.cooperation.tw'
   }
 };
 
