@@ -1,671 +1,687 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
-<head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" xml:lang="zh-TW"><head>
+
 <meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>AI Cooperation — 打造人機協作的基礎架構 – AI Cooperation</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-4cc051bc1477f4e29d838bde52c39a9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "沒有結果",
+    "search-matching-documents-text": "符合的文件",
+    "search-copy-link-title": "複製搜尋連結",
+    "search-hide-matches-text": "隱藏其他符合的結果",
+    "search-more-match-text": "更多符合結果",
+    "search-more-matches-text": "更多符合結果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "送出",
+    "search-label": "搜尋"
+  }
+}</script>
+<script>document.documentElement.classList.add('js');</script>
+<link rel="icon" type="image/png" href="./assets/favicon.png">
+<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#0c0f14">
 <!-- Google tag (gtag.js) — cooperation.tw total -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-975S6707DM"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-975S6707DM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-975S6707DM');
 </script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cooperation — Designing the Infrastructure of Human–AI Cooperation</title>
-<meta name="description" content="We are not building another AI tool. We are designing the structural framework that enables humans and AI systems to collaborate under defined constraints, measurable cost, and verifiable processes.">
-<meta name="keywords" content="AI Cooperation,Human-AI Collaboration,AI Infrastructure,OpsAgent,Cooperative Intelligence,cooperation.tw">
-<link rel="canonical" href="https://cooperation.tw/">
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="Cooperation — Designing the Infrastructure of Human–AI Cooperation">
-<meta property="og:description" content="The real challenge is not intelligence. The real challenge is cooperation.">
-<meta property="og:url" content="https://cooperation.tw/">
-<meta property="og:image" content="https://cooperation.tw/images/hero.png">
-<meta property="og:site_name" content="Cooperation">
-<meta property="og:locale" content="zh_TW">
-<meta property="og:locale:alternate" content="en_US">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cooperation — Human–AI Infrastructure">
-<meta name="twitter:description" content="The real challenge is not intelligence. The real challenge is cooperation.">
-<meta name="twitter:image" content="https://cooperation.tw/images/hero.png">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Cooperation",
-  "url": "https://cooperation.tw",
-  "description": "Designing the Infrastructure of Human-AI Cooperation. Structured environments where AI operates within defined scope, cost boundaries, and verifiable workflows.",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "email": "aicooperation.tw@gmail.com",
-    "contactType": "customer service"
-  },
-  "sameAs": ["https://github.com/ai-cooperation"]
-}
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "w905wid7rj");
 </script>
 
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-<link rel="apple-touch-icon" href="/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#0c0f14;--bg2:#12161e;--bg3:#181d28;
-  --blue:#4a9eff;--blue-soft:rgba(74,158,255,.08);
-  --purple:#9b7aff;--purple-soft:rgba(155,122,255,.06);
-  --white:#f0f2f5;--gray:#8a9bb0;--gray-dark:#4a5568;
-  --line:rgba(255,255,255,.06);
-}
-html{scroll-behavior:smooth;font-size:20px}
-body{font-family:Inter,'Noto Sans TC',sans-serif;background:var(--bg);color:var(--white);line-height:1.8;overflow-x:hidden}
-
-/* i18n */
-[data-lang="en"]{display:none!important}
-html[lang="en"] [data-lang="en"]{display:block!important}
-html[lang="en"] [data-lang="zh"]{display:none!important}
-span[data-lang="en"],a[data-lang="en"]{display:none!important}
-html[lang="en"] span[data-lang="en"],html[lang="en"] a[data-lang="en"]{display:inline!important}
-html[lang="en"] span[data-lang="zh"],html[lang="en"] a[data-lang="zh"]{display:none!important}
-
-/* LANG SWITCH */
-.lang-switch{display:flex;gap:2px;background:rgba(255,255,255,.06);border-radius:6px;padding:2px;margin-left:1rem}
-.lang-switch button{background:none;border:none;color:var(--gray);font-size:1rem;padding:.5rem 1rem;border-radius:4px;cursor:pointer;font-family:inherit;letter-spacing:1px;transition:all .2s;min-height:44px}
-.lang-switch button.active{background:rgba(74,158,255,.15);color:var(--blue)}
-
-/* NAV */
-nav{position:fixed;top:0;width:100%;z-index:100;padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center;transition:all .4s}
-nav.scrolled{background:rgba(12,15,20,.92);backdrop-filter:blur(20px);padding:1rem 3rem;border-bottom:1px solid var(--line)}
-.nav-logo{font-size:1.2rem;font-weight:600;color:var(--white);text-decoration:none;letter-spacing:2px;text-transform:uppercase;opacity:.9}
-.nav-right{display:flex;align-items:center;gap:0}
-.nav-links{display:flex;gap:2.5rem;list-style:none}
-.nav-links a{color:var(--gray);text-decoration:none;font-size:1rem;letter-spacing:1px;transition:color .3s}
-.nav-links a:hover{color:var(--white)}
-.nav-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer}
-
-/* HERO */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 2rem;position:relative;background:url('images/hero.png') center/cover no-repeat}
-.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,20,.5) 0%,rgba(12,15,20,.65) 50%,rgba(12,15,20,.9) 100%)}
-.hero-content{position:relative;max-width:800px;padding:2rem 0}
-.hero-content .overline{font-size:1rem;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:2rem;font-weight:500}
-.hero h1{font-size:clamp(2.4rem,5.5vw,3.8rem);font-weight:400;line-height:1.4;margin-bottom:2rem;letter-spacing:.5px;text-shadow:0 2px 20px rgba(0,0,0,.4)}
-.hero h1 strong{font-weight:600;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero .hero-sub{font-size:1.25rem;color:rgba(255,255,255,.75);line-height:2.2;font-weight:400;text-shadow:0 1px 10px rgba(0,0,0,.3)}
-.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.3);font-size:1rem;letter-spacing:2px;animation:float 3s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
-
-/* VIDEO SECTION */
-.video-section{padding:5rem 2rem;background:var(--bg2)}
-.video-placeholder{max-width:900px;margin:0 auto;aspect-ratio:16/9;max-height:480px;border-radius:16px;overflow:hidden;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;cursor:default}
-.video-placeholder img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.video-placeholder .video-overlay{position:absolute;inset:0;background:rgba(12,15,20,.6);transition:background .3s}
-.video-placeholder:hover .video-overlay{background:rgba(12,15,20,.5)}
-.play-btn{width:76px;height:76px;border-radius:50%;border:2px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;position:relative;z-index:2;transition:all .3s;cursor:pointer}
-.video-placeholder:hover .play-btn,.video-play-overlay:hover .play-btn{border-color:rgba(255,255,255,.4);transform:scale(1.05)}
-.play-btn::after{content:"";width:0;height:0;border-style:solid;border-width:14px 0 14px 22px;border-color:transparent transparent transparent rgba(255,255,255,.5);margin-left:4px}
-/* Video player (real video) */
-.video-player{max-width:900px;margin:0 auto;aspect-ratio:16/9;max-height:480px;border-radius:16px;overflow:hidden;position:relative;cursor:pointer}
-.video-player video{width:100%;height:100%;object-fit:cover}
-.video-play-overlay{position:absolute;inset:0;background:rgba(12,15,20,.5);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;transition:opacity .4s;z-index:2}
-.video-player.playing .video-play-overlay{opacity:0;pointer-events:none}
-.video-info{position:relative;z-index:2;text-align:center}
-.video-title{font-size:1.15rem;font-weight:500;color:var(--white);letter-spacing:1px}
-.video-subtitle{font-size:1rem;color:var(--gray);letter-spacing:1px;margin-top:.3rem}
-.video-badge{display:inline-block;font-size:1rem;letter-spacing:3px;text-transform:uppercase;color:var(--blue);font-weight:600;padding:.5rem 1.4rem;border:1px solid rgba(74,158,255,.3);border-radius:20px;margin-top:.8rem}
-
-/* SECTIONS */
-section{padding:7rem 2rem}
-.container{max-width:1000px;margin:0 auto}
-.section-title{font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:600;margin-bottom:2rem;letter-spacing:1px;background:linear-gradient(135deg,var(--white),var(--gray));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.divider{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:0 auto;max-width:600px}
-
-/* PROJECTS */
-.projects-desc{color:var(--gray);font-weight:400;font-size:1.1rem;line-height:2}
-.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
-.project-card{border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--white);transition:all .3s;cursor:pointer}
-.project-card:hover{border-color:rgba(74,158,255,.25);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
-.card-visual{height:170px;overflow:hidden;position:relative;border-bottom:1px solid var(--line)}
-.card-visual img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
-.project-card:hover .card-visual img{transform:scale(1.05)}
-.card-body{padding:1.5rem}
-.proj-label{font-size:1rem;color:var(--blue);letter-spacing:2px;font-weight:600;text-transform:uppercase}
-.project-card h3{font-size:1.1rem;font-weight:500;margin:.5rem 0}
-.project-card p{font-size:1rem;color:var(--gray);font-weight:400;line-height:1.8}
-
-/* COMING SOON CARD */
-.project-card.coming-soon{opacity:.55;cursor:default}
-.project-card.coming-soon:hover{border-color:var(--line);transform:none;box-shadow:none}
-.card-visual-placeholder{height:170px;overflow:hidden;position:relative;border-bottom:1px solid var(--line);background:linear-gradient(135deg,var(--bg2) 0%,var(--bg3) 50%,rgba(74,158,255,.05) 100%);display:flex;align-items:center;justify-content:center}
-.card-visual-placeholder .coming-icon{font-size:2.5rem;opacity:.3;color:var(--gray)}
-
-/* MODAL */
-.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;display:none;align-items:center;justify-content:center;padding:1.5rem;animation:modalFadeIn .25s ease}
-.modal-backdrop.active{display:flex}
-@keyframes modalFadeIn{from{opacity:0}to{opacity:1}}
-.modal-panel{background:var(--bg3);border:1px solid var(--line);border-radius:16px;max-width:560px;width:100%;max-height:90vh;overflow-y:auto;position:relative;animation:modalSlideIn .25s ease}
-@keyframes modalSlideIn{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
-.modal-close{position:absolute;top:1rem;right:1rem;background:rgba(0,0,0,.5);border:1px solid var(--line);color:var(--gray);width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;z-index:3;transition:all .2s}
-.modal-close:hover{color:var(--white);border-color:rgba(255,255,255,.2)}
-.modal-image{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:16px 16px 0 0;display:block}
-.modal-body{padding:1.8rem}
-.modal-label{font-size:1rem;color:var(--blue);letter-spacing:2px;font-weight:600;text-transform:uppercase;margin-bottom:.4rem}
-.modal-title{font-size:1.4rem;font-weight:600;margin-bottom:1.2rem}
-.modal-tech-title{font-size:.9rem;color:var(--gray);letter-spacing:1px;text-transform:uppercase;font-weight:600;margin-bottom:.8rem}
-.modal-tech{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.8rem}
-.modal-tech li{font-size:.9rem;color:var(--gray);background:rgba(74,158,255,.08);border:1px solid rgba(74,158,255,.15);border-radius:6px;padding:.35rem .8rem;font-weight:400}
-.modal-visit{display:inline-block;color:var(--blue);text-decoration:none;font-size:1rem;font-weight:500;letter-spacing:1px;padding:.6rem 1.4rem;border:1px solid rgba(74,158,255,.3);border-radius:8px;transition:all .2s}
-.modal-visit:hover{background:rgba(74,158,255,.1);border-color:rgba(74,158,255,.5)}
-.modal-dev-badge{display:inline-block;font-size:.95rem;color:var(--gray);letter-spacing:1px;padding:.6rem 1.4rem;border:1px solid var(--line);border-radius:8px}
-
-/* TOAST */
-.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--bg3);border:1px solid var(--line);color:var(--gray);padding:.8rem 1.6rem;border-radius:8px;font-size:.95rem;z-index:300;opacity:0;transition:all .3s;pointer-events:none}
-.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-
-/* VISION */
-.vision{padding:10rem 2rem;position:relative;background:url('images/vision.png') center/cover no-repeat}
-.vision::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,15,20,.55) 0%,rgba(12,15,20,.45) 50%,rgba(12,15,20,.7) 100%)}
-.vision-content{position:relative;text-align:center;max-width:750px;margin:0 auto}
-.vision-text{font-size:clamp(1.4rem,3.5vw,1.9rem);font-weight:400;line-height:2.2;text-shadow:0 2px 15px rgba(0,0,0,.4)}
-.vision-text strong{font-weight:600;color:var(--white)}
-.vision-text .accent{background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:600}
-
-/* FOOTER */
-footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line)}
-.footer-links{display:flex;gap:2.5rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap}
-.footer-links a{color:var(--gray);text-decoration:none;font-size:1rem;letter-spacing:1px;transition:color .3s}
-.footer-links a:hover{color:var(--white)}
-.footer-copy{font-size:1rem;color:var(--gray-dark);letter-spacing:1px}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  nav{padding:1rem 1.5rem}
-  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(12,15,20,.98);flex-direction:column;padding:1.5rem;gap:1.2rem;border-bottom:1px solid var(--line)}
-  .nav-links.open{display:flex}
-  .nav-toggle{display:block}
-  .lang-switch{margin-left:auto;margin-right:.5rem}
-  section{padding:4rem 1.5rem}
-  .project-grid{grid-template-columns:1fr}
-  .vision{padding:6rem 1.5rem}
-  .modal-panel{max-width:100%;border-radius:12px}
-}
-@media(min-width:769px) and (max-width:1024px){
-  .project-grid{grid-template-columns:repeat(2,1fr)}
-}
-</style>
+<meta property="og:title" content="AI Cooperation — 打造人機協作的基礎架構">
+<meta property="og:description" content="打造人機協作的基礎架構">
+<meta property="og:image" content="https://cooperation.tw/assets/og-image.png">
+<meta property="og:site_name" content="AI Cooperation">
 </head>
-<body>
 
-<nav id="navbar">
-  <a href="#" class="nav-logo">Cooperation</a>
-  <div class="nav-right">
-    <ul class="nav-links">
-      <li>
-        <a href="#projects" data-lang="zh">專案</a>
-        <a href="#projects" data-lang="en">Projects</a>
-      </li>
-      <li>
-        <a href="mailto:aicooperation.tw@gmail.com" data-lang="zh">聯絡</a>
-        <a href="mailto:aicooperation.tw@gmail.com" data-lang="en">Contact</a>
-      </li>
-    </ul>
-    <div class="lang-switch">
-      <button onclick="setLang('zh')" class="active" id="btn-zh">中</button>
-      <button onclick="setLang('en')" id="btn-en">EN</button>
-    </div>
-    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="menu">&#9776;</button>
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./assets/logo.svg" alt="" class="navbar-logo light-content">
+    <img src="./assets/logo.svg" alt="" class="navbar-logo dark-content">
+    </a>
   </div>
-</nav>
+            <div id="quarto-search" class="" title="搜尋"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="切換導航列" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./projects/index.html"> 
+<span class="menu-text">專案</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./courses/index.html"> 
+<span class="menu-text">課程</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">關於</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:ai@cooperation.tw"> <i class="bi bi-envelope" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ai-cooperation"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-layout-custom page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+<!-- main -->
 
-<!-- ==================== HERO ==================== -->
+
+
+
 <section class="hero">
-  <div class="hero-content">
-    <div class="overline">cooperation.tw</div>
-    <h1 data-lang="zh">打造<strong>人機協作</strong><br>的基礎架構</h1>
-    <h1 data-lang="en">Designing the Infrastructure of <strong>Human–AI Cooperation</strong></h1>
-    <p class="hero-sub" data-lang="zh">
-      從可控代理到模組化技能系統<br>
-      我們設計結構化的環境<br>
-      讓 AI 在明確的範疇、成本邊界與可驗證的流程中運行
-    </p>
-    <p class="hero-sub" data-lang="en">
-      From controllable agents to modular skill systems<br>
-      we design structured environments<br>
-      where AI operates within defined scope, cost boundaries, and verifiable workflows
-    </p>
-  </div>
-  <div class="scroll-hint">&darr;</div>
-</section>
-
-<!-- ==================== BRAND FILM ==================== -->
-<div class="video-section">
-  <div class="video-player" id="brand-video">
-    <video poster="images/video-brand.png" preload="metadata" playsinline loop muted
-           data-src-zh="videos/brand-film.mp4" data-src-en="videos/brand-film-en.mp4">
-      <source src="videos/brand-film.mp4" type="video/mp4">
-    </video>
-    <div class="video-play-overlay" id="brand-overlay" onclick="toggleVideo('brand-video')">
-      <div class="play-btn"></div>
-      <div class="video-info">
-        <div class="video-title" data-lang="zh">為什麼合作比智慧更重要</div>
-        <div class="video-title" data-lang="en">Why Cooperation Matters</div>
-      </div>
-    </div>
-  </div>
+<div class="hero-inner">
+<h1 class="reveal-fx">打造人機協作<br>的基礎架構</h1>
+<p class="hero-sub reveal-fx" style="--rd:.15s">智慧人人可用，差距在協作的架構<br>這裡的每個專案、每門課，都在真實運轉</p>
+<div class="hero-cta reveal-fx" style="--rd:.3s">
+<a class="btn-primary" href="./projects/">看運行中的專案</a>
+<a class="btn-ghost" href="./courses/">從課程開始</a>
 </div>
-
-<!-- ==================== LIVE PROJECTS ==================== -->
-<section id="projects">
-  <div class="container">
-    <div class="section-title" data-lang="zh">運行中的專案</div>
-    <div class="section-title" data-lang="en">Live Projects</div>
-    <p class="projects-desc" data-lang="zh">基於此框架建構<br>已在生產環境中運行的系統與開源專案</p>
-    <p class="projects-desc" data-lang="en">Systems built on this framework<br>production systems and open-source projects</p>
-
-    <div class="project-grid">
-      <div class="project-card" onclick="openModal('ai100')">
-        <div class="card-visual">
-          <img src="images/proj-ai100.png" alt="AI 100 Lectures" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="proj-label" data-lang="zh">AI 教育</div>
-          <div class="proj-label" data-lang="en">AI Education</div>
-          <h3 data-lang="zh">AI 100 講</h3>
-          <h3 data-lang="en">AI 100 Lectures</h3>
-          <p data-lang="zh">100 堂結構化 AI 課程<br>含 Podcast、視覺圖解與康乃爾筆記<br>對齊 iPAS 認證</p>
-          <p data-lang="en">100 structured AI lectures<br>with podcast, diagrams, and Cornell notes<br>iPAS certification aligned</p>
-        </div>
-      </div>
-      <div class="project-card" onclick="openModal('s100')">
-        <div class="card-visual">
-          <img src="images/proj-s100.png" alt="Sustainability 100" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="proj-label" data-lang="zh">永續發展</div>
-          <div class="proj-label" data-lang="en">Sustainability</div>
-          <h3 data-lang="zh">永續 100 講</h3>
-          <h3 data-lang="en">Sustainability 100</h3>
-          <p data-lang="zh">100 集 ESG、淨零碳排與碳管理系列<br>含 AI Podcast、資訊圖表與影片</p>
-          <p data-lang="en">100-episode series on ESG, net-zero, and carbon management<br>with AI podcasts and video</p>
-        </div>
-      </div>
-      <div class="project-card" onclick="openModal('kb')">
-        <div class="card-visual">
-          <img src="images/proj-kb.png" alt="Knowledge Learning System" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="proj-label" data-lang="zh">知識庫</div>
-          <div class="proj-label" data-lang="en">Knowledge Base</div>
-          <h3 data-lang="zh">知識學習系統</h3>
-          <h3 data-lang="en">Knowledge Learning System</h3>
-          <p data-lang="zh">專業領域 AI 知識庫<br>保險、醫療、iPAS AI、淨零碳<br>考生與專業人士的第二大腦</p>
-          <p data-lang="en">Domain-specific AI knowledge bases<br>Insurance, medical, iPAS AI, net-zero<br>Second brain for professionals</p>
-        </div>
-      </div>
-      <div class="project-card" onclick="openModal('sustainability')">
-        <div class="card-visual">
-          <img src="images/proj-sustainability.png" alt="AI Sustainability Platform" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="proj-label" data-lang="zh">永續智慧</div>
-          <div class="proj-label" data-lang="en">Sustainability Intelligence</div>
-          <h3 data-lang="zh">永續決策平台</h3>
-          <h3 data-lang="en">Sustainability Platform</h3>
-          <p data-lang="zh">31 項資料源即時監控<br>能源、碳排、空品、水資源<br>AI 多代理預測分析</p>
-          <p data-lang="en">31 data sources real-time monitoring<br>energy, carbon, air quality, water<br>AI multi-agent forecasting</p>
-        </div>
-      </div>
-      <div class="project-card" onclick="openModal('aipath')">
-        <div class="card-visual">
-          <img src="images/proj-aipath.png" alt="AiPath" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="proj-label" data-lang="zh">課程培訓</div>
-          <div class="proj-label" data-lang="en">Training</div>
-          <h3 data-lang="zh">AI 學習路徑</h3>
-          <h3 data-lang="en">AiPath</h3>
-          <p data-lang="zh">L1–L4 四階 AI 能力升級課程<br>從用工具到流程改造<br>含 10+ 實戰模組</p>
-          <p data-lang="en">L1–L4 progressive AI capability program<br>from tool usage to process transformation<br>10+ hands-on modules</p>
-        </div>
-      </div>
-      <div class="project-card" onclick="openModal('paperlab')">
-        <div class="card-visual">
-          <img src="images/proj-paperlab.png" alt="Paper Lab" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="proj-label" data-lang="zh">論文方法學</div>
-          <div class="proj-label" data-lang="en">Research Methodology</div>
-          <h3 data-lang="zh">寫論文找方法</h3>
-          <h3 data-lang="en">Paper Lab</h3>
-          <p data-lang="zh">12 階段論文寫作方法論<br>從概念探索到審稿回覆<br>AI 原生研究工作流</p>
-          <p data-lang="en">12-phase paper writing methodology<br>from concept to reviewer response<br>AI-native research workflow</p>
-        </div>
-      </div>
-      <div class="project-card" onclick="openModal('gemgate')">
-        <div class="card-visual">
-          <img src="images/proj-gemgate.png?v=2" alt="GemGate" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="proj-label" data-lang="zh">AI 基礎設施</div>
-          <div class="proj-label" data-lang="en">AI Infrastructure</div>
-          <h3 data-lang="zh">GemGate</h3>
-          <h3 data-lang="en">GemGate</h3>
-          <p data-lang="zh">免費 AI API 閘道<br>OpenAI SDK 相容，零成本<br>Chat / 圖片 / TTS / Vision / Podcast</p>
-          <p data-lang="en">Free AI API Gateway<br>OpenAI SDK compatible, zero cost<br>Chat / Image / TTS / Vision / Podcast</p>
-        </div>
-      </div>
-      <div class="project-card" onclick="openModal('foreclosure')">
-        <div class="card-visual">
-          <img src="images/proj-foreclosure.png" alt="Foreclosure Map" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="proj-label" data-lang="zh">不動產</div>
-          <div class="proj-label" data-lang="en">Real Estate</div>
-          <h3 data-lang="zh">法拍地圖</h3>
-          <h3 data-lang="en">Foreclosure Map</h3>
-          <p data-lang="zh">即時法拍屋地圖<br>涵蓋全台 22 個地方法院<br>每週自動更新</p>
-          <p data-lang="en">Real-time foreclosure property map<br>covering all 22 Taiwan district courts<br>Auto-updated weekly</p>
-        </div>
-      </div>
-      <div class="project-card" onclick="openModal('agent_kb')">
-        <div class="card-visual">
-          <img src="images/proj-agent-kb.png" alt="Agent KB" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="proj-label" data-lang="zh">Agent 知識庫</div>
-          <div class="proj-label" data-lang="en">Agent KB</div>
-          <h3 data-lang="zh">Agent KB</h3>
-          <h3 data-lang="en">Agent KB</h3>
-          <p data-lang="zh">給 AI 的教學知識庫<br>4-layer 案例 + 跨領域 rules + 94 skills<br>對話內化，不只搜尋查詢</p>
-          <p data-lang="en">Teaching KB for AI agents<br>4-layer cases + rules + 94 skills<br>Internalize through dialogue, not lookup</p>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 </section>
 
-<!-- ==================== VISION ==================== -->
+<div class="pulse-rail" aria-hidden="true"></div>
+
+<section class="home-section">
+<h2 class="reveal-fx">最新動態</h2>
+<div class="news-list">
+<a class="news-item reveal-fx" href="./projects/ifrs-s2.html">
+<span class="news-tag">新專案</span>
+<span class="news-title">IFRS S2 永續合規知識庫上線——188 份文件、逐條可勾稽的差距分析</span>
+</a>
+<a class="news-item reveal-fx" style="--rd:.1s" href="./projects/classclaw.html">
+<span class="news-tag">開源預告</span>
+<span class="news-title">ClassClaw 課堂即時互動系統，即將開源</span>
+</a>
+<a class="news-item reveal-fx" style="--rd:.2s" href="./blog/">
+<span class="news-tag">文章</span>
+<span class="news-title">什麼是 AI Operation——從工具使用到協作架構</span>
+</a>
+</div>
+</section>
+
+<section class="home-section">
+<h2 class="reveal-fx">精選專案</h2>
+<div class="pgrid">
+<a class="pcard reveal-fx" href="./projects/ai100.html">
+<img src="./assets/images/proj-ai100.png" alt="AI 100 講" loading="lazy">
+<div class="pcard-body"><div class="pcard-head"><h3>AI 100 講</h3><span class="badge badge-live">運行中</span></div>
+<p class="pcard-tagline">十個模組、一百講的 AI 應用課程，每講附中文 Podcast</p></div>
+</a>
+<a class="pcard reveal-fx" style="--rd:.08s" href="./projects/insurance-kb.html">
+<img src="./assets/images/proj-kb.png" alt="保險業知識庫" loading="lazy">
+<div class="pcard-body"><div class="pcard-head"><h3>保險業知識庫</h3><span class="badge badge-live">運行中</span></div>
+<p class="pcard-tagline">覆蓋台日韓港與東南亞的保險市場情報，每天自動累積</p></div>
+</a>
+<a class="pcard reveal-fx" style="--rd:.16s" href="./projects/ifrs-s2.html">
+<img src="./assets/images/proj-ifrs.jpg" alt="IFRS S2 知識庫" loading="lazy">
+<div class="pcard-body"><div class="pcard-head"><h3>IFRS S2 合規知識庫</h3><span class="badge badge-live">運行中</span></div>
+<p class="pcard-tagline">永續揭露差距分析，188 份文件逐條可勾稽</p></div>
+</a>
+<a class="pcard reveal-fx" href="./projects/paperlab.html">
+<img src="./assets/images/proj-paperlab.png" alt="PaperLab" loading="lazy">
+<div class="pcard-body"><div class="pcard-head"><h3>PaperLab</h3><span class="badge badge-live">運行中</span></div>
+<p class="pcard-tagline">從模糊想法到研究計畫與論文初稿的生產系統</p></div>
+</a>
+<a class="pcard reveal-fx" style="--rd:.08s" href="./projects/sustainability-100.html">
+<img src="./assets/images/proj-s100.png" alt="永續 100 講" loading="lazy">
+<div class="pcard-body"><div class="pcard-head"><h3>永續 100 講</h3><span class="badge badge-live">運行中</span></div>
+<p class="pcard-tagline">淨零碳排、ESG、碳交易十大主題的永續知識系列</p></div>
+</a>
+<a class="pcard pcard-more reveal-fx" style="--rd:.16s" href="./projects/">
+<div class="pcard-body pcard-more-body">
+<h3>全部專案</h3>
+<p class="pcard-tagline">五個分類，持續擴增</p>
+<span class="pcard-cta">瀏覽全部</span>
+</div>
+</a>
+</div>
+</section>
+
+<section class="home-section">
+<h2 class="reveal-fx">為什麼合作比智慧更重要</h2>
+<div class="video-wrap reveal-fx">
+<video controls="" preload="none" poster="/assets/images/video-brand.png">
+<source src="./assets/videos/brand-film.mp4" type="video/mp4">
+</video>
+</div>
+</section>
+
+<section class="home-section">
+<h2 class="reveal-fx">課程</h2>
+<p class="section-lead reveal-fx">不需要程式背景，但需要理解每一步的機制邏輯。</p>
+<div class="course-row reveal-fx" style="--rd:.1s">
+<a class="course-chip" href="./courses/">AI 100 講</a>
+<a class="course-chip" href="./courses/">永續 100 講</a>
+<a class="course-chip" href="./courses/">AI 學習路徑</a>
+<a class="course-chip" href="./courses/">YOLO 視覺辨識</a>
+<a class="course-chip" href="./courses/">企業內訓</a>
+</div>
+</section>
+
 <section class="vision">
-  <div class="vision-content">
-    <div class="vision-text" data-lang="zh">
-      當 AI 變得人人可用<br>
-      <strong>能力的差距將不只在智慧</strong>
-      <br><br>
-      你只管勇往直前<br>
-      <span class="accent">與 AI 協作的架構我們來建</span>
-      <br><br>
-      <a href="https://cooperation.tw" style="color:var(--gray);text-decoration:none;font-size:1.1rem;letter-spacing:2px;transition:color .3s" onmouseover="this.style.color='var(--blue)'" onmouseout="this.style.color='var(--gray)'">cooperation.tw</a>
-    </div>
-    <div class="vision-text" data-lang="en">
-      When AI becomes available to everyone<br>
-      <strong>the gap will no longer be just intelligence</strong>
-      <br><br>
-      You focus on forging ahead<br>
-      <span class="accent">we'll build the architecture of cooperation</span>
-      <br><br>
-      <a href="https://cooperation.tw" style="color:var(--gray);text-decoration:none;font-size:1.1rem;letter-spacing:2px;transition:color .3s" onmouseover="this.style.color='var(--blue)'" onmouseout="this.style.color='var(--gray)'">cooperation.tw</a>
-    </div>
-  </div>
+<div class="vision-scrim"></div>
+<p class="vision-text reveal-fx">
+當 AI 變得人人可用<br>
+能力的差距將不只在智慧<br>
+你只管勇往直前<br>
+與 AI 協作的架構我們來建
+</p>
 </section>
 
-<!-- ==================== FOOTER ==================== -->
-<footer>
-  <div class="footer-links">
-    <a href="mailto:aicooperation.tw@gmail.com?subject=[Cooperation] Inquiry" data-lang="zh">聯絡我們</a>
-    <a href="mailto:aicooperation.tw@gmail.com?subject=[Cooperation] Inquiry" data-lang="en">Contact</a>
-    <a href="https://github.com/ai-cooperation" target="_blank">GitHub</a>
-    <a href="mailto:aicooperation.tw@gmail.com?subject=[Cooperation] Feedback" data-lang="zh">意見回饋</a>
-    <a href="mailto:aicooperation.tw@gmail.com?subject=[Cooperation] Feedback" data-lang="en">Feedback</a>
-  </div>
-  <div class="footer-copy">&copy; 2026 Cooperation</div>
-</footer>
 
-<!-- ==================== PROJECT MODAL ==================== -->
-<div class="modal-backdrop" id="project-modal" onclick="closeModal(event)">
-  <div class="modal-panel" onclick="event.stopPropagation()">
-    <button class="modal-close" onclick="closeModal()">&times;</button>
-    <img class="modal-image" id="modal-image" src="" alt="">
-    <div class="modal-body">
-      <div class="modal-label" id="modal-label"></div>
-      <div class="modal-title" id="modal-title"></div>
-      <div class="modal-tech-title" data-lang="zh">技術與流程</div>
-      <div class="modal-tech-title" data-lang="en">Technologies &amp; Processes</div>
-      <ul class="modal-tech" id="modal-tech"></ul>
-      <div id="modal-action"></div>
-    </div>
-  </div>
-</div>
 
-<!-- ==================== TOAST ==================== -->
-<div class="toast" id="toast"></div>
 
-<script>
-/* ---- Nav scroll ---- */
-window.addEventListener('scroll',function(){
-  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
-});
-document.querySelectorAll('.nav-links a').forEach(function(a){
-  a.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open')});
-});
-
-/* ---- Language ---- */
-function setLang(lang){
-  document.documentElement.lang=lang;
-  document.getElementById('btn-zh').classList.toggle('active',lang==='zh');
-  document.getElementById('btn-en').classList.toggle('active',lang==='en');
-  localStorage.setItem('lang',lang);
-  document.querySelectorAll('video[data-src-zh]').forEach(function(v){
-    var newSrc=v.getAttribute('data-src-'+lang);
-    if(newSrc && v.querySelector('source').getAttribute('src')!==newSrc){
-      var wasPlaying=!v.paused;
-      var time=v.currentTime;
-      v.querySelector('source').setAttribute('src',newSrc);
-      v.load();
-      v.currentTime=time;
-      if(wasPlaying)v.play();
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "已複製");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "已複製");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/cooperation\.tw");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
     }
   });
-  // Refresh modal if open
-  if(document.getElementById('project-modal').classList.contains('active') && currentModalId){
-    populateModal(currentModalId);
-  }
-}
-(function(){
-  var saved=localStorage.getItem('lang');
-  if(saved)setLang(saved);
-})();
-
-/* ---- Video player ---- */
-function toggleVideo(id){
-  var wrap=document.getElementById(id);
-  var vid=wrap.querySelector('video');
-  if(vid.paused){
-    vid.muted=false;vid.play();wrap.classList.add('playing');
-  }else{
-    vid.pause();wrap.classList.remove('playing');
-  }
-}
-document.querySelectorAll('.video-player video').forEach(function(v){
-  v.addEventListener('click',function(){
-    var wrap=v.closest('.video-player');
-    v.pause();wrap.classList.remove('playing');
-  });
-  v.addEventListener('ended',function(){
-    v.closest('.video-player').classList.remove('playing');
-  });
-});
-
-/* ---- Project Data ---- */
-var projectData = {
-  ai100: {
-    image: 'images/proj-ai100.png',
-    label: { zh: 'AI 教育', en: 'AI Education' },
-    title: { zh: 'AI 100 講', en: 'AI 100 Lectures' },
-    tech: {
-      zh: ['AI Podcast 自動生成', '康乃爾筆記系統', '視覺化圖解', 'iPAS 能力對齊'],
-      en: ['AI Podcast auto-generation', 'Cornell note system', 'Visual diagrams', 'iPAS competency alignment']
-    },
-    url: 'https://ai-cooperation.github.io/ai100/'
-  },
-  s100: {
-    image: 'images/proj-s100.png',
-    label: { zh: '永續發展', en: 'Sustainability' },
-    title: { zh: '永續 100 講', en: 'Sustainability 100' },
-    tech: {
-      zh: ['AI Podcast 生成', 'ESG 知識圖譜', '碳管理資料庫', '多媒體內容產線'],
-      en: ['AI Podcast generation', 'ESG knowledge graph', 'Carbon management database', 'Multimedia content pipeline']
-    },
-    url: 'https://ai-cooperation.github.io/sustainability-100/'
-  },
-  foreclosure: {
-    image: 'images/proj-foreclosure.png',
-    label: { zh: '不動產', en: 'Real Estate' },
-    title: { zh: '法拍地圖', en: 'Foreclosure Map' },
-    tech: {
-      zh: ['法院資料自動爬取', '地理資訊視覺化', '每週排程更新', '開放資料整合'],
-      en: ['Court data auto-scraping', 'GIS visualization', 'Weekly scheduled updates', 'Open data integration']
-    },
-    url: 'https://ai-cooperation.github.io/foreclosure-map/'
-  },
-  sustainability: {
-    image: 'images/proj-sustainability.png',
-    label: { zh: '永續智慧', en: 'Sustainability Intelligence' },
-    title: { zh: '永續決策平台', en: 'Sustainability Platform' },
-    tech: {
-      zh: ['31 項即時資料源', 'AI 多代理預測', '能源與碳排監控', '決策儀表板'],
-      en: ['31 real-time data sources', 'AI multi-agent forecasting', 'Energy & carbon monitoring', 'Decision dashboard']
-    },
-    url: 'https://ai-cooperation.github.io/ai-sustainability-platform/'
-  },
-  aipath: {
-    image: 'images/proj-aipath.png',
-    label: { zh: '課程培訓', en: 'Training' },
-    title: { zh: 'AI 學習路徑', en: 'AiPath' },
-    tech: {
-      zh: ['L1-L4 漸進式課程設計', '實戰模組', '企業內訓體系', '能力評估框架'],
-      en: ['L1-L4 progressive curriculum', 'Hands-on modules', 'Enterprise training system', 'Competency assessment framework']
-    },
-    url: 'https://aipath.cooperation.tw'
-  },
-  paperlab: {
-    image: 'images/proj-paperlab.png',
-    label: { zh: '論文方法學', en: 'Research Methodology' },
-    title: { zh: '寫論文找方法', en: 'Paper Lab' },
-    tech: {
-      zh: ['12 階段方法論', 'AI 原生研究工作流', 'DOI 三重驗證', '多模型交叉審查'],
-      en: ['12-phase methodology', 'AI-native research workflow', 'DOI triple verification', 'Multi-model cross-review']
-    },
-    url: 'https://paperlab.cooperation.tw'
-  },
-  gemgate: {
-    image: 'images/proj-gemgate.png?v=2',
-    label: { zh: 'AI 基礎設施', en: 'AI Infrastructure' },
-    title: { zh: 'GemGate', en: 'GemGate' },
-    tech: {
-      zh: ['免費 Google AI API 閘道', 'OpenAI SDK 相容', 'Chat / 圖片 / TTS / Vision / Podcast', '自助 API Key 註冊', '每 Key 頻率限制與用量追蹤', '雙帳號負載均衡'],
-      en: ['Free Google AI API Gateway', 'OpenAI SDK compatible', 'Chat / Image / TTS / Vision / Podcast', 'Self-service API key registration', 'Per-key rate limiting and usage tracking', 'Dual-account round-robin']
-    },
-    links: [
-      { url: 'http://43.159.131.124:8760/', label: { zh: '前往 GemGate', en: 'Visit GemGate' } },
-      { url: 'https://ai100.cooperation.tw/classroom/host', label: { zh: '前往 ClassClaw', en: 'Visit ClassClaw' } },
-      { url: 'https://fluxgate.cooperation.tw/', label: { zh: '前往 FluxGate（AI 生圖）', en: 'Visit FluxGate (AI image)' } }
-    ]
-  },
-  kb: {
-    image: 'images/proj-kb.png',
-    label: { zh: '知識庫', en: 'Knowledge Base' },
-    title: { zh: '知識學習系統', en: 'Knowledge Learning System' },
-    tech: {
-      zh: ['保險業知識庫（已上線）', '醫療知識庫（規劃中）', 'iPAS AI 應用規劃師（規劃中）', '淨零碳規劃師（規劃中）', '每日自動爬取行業資訊', 'AI 摘要、分類與索引'],
-      en: ['Insurance KB (live)', 'Medical KB (planned)', 'iPAS AI Practitioner KB (planned)', 'Net-Zero Practitioner KB (planned)', 'Daily industry info crawling', 'AI summarization & indexing']
-    },
-    url: 'https://kb.cooperation.tw'
-  },
-  agent_kb: {
-    image: 'images/proj-agent-kb.png',
-    label: { zh: 'Agent 知識庫', en: 'Agent KB' },
-    title: { zh: 'Agent KB', en: 'Agent KB' },
-    tech: {
-      zh: ['4-layer 案例結構（給人 + 給 AI 雙視角）', '14 條跨領域 rules（多案例抽出可遷移原則）', '94+ skills（Claude Code / Codex 工作流）', 'MCP 連線（Claude.ai / Cursor 直接餵入）', '個人筆記 + zip 匯出（對齊 kb-vault schema）', '不擁有原始教材，擁有跨領域提煉'],
-      en: ['4-layer case structure (human + AI dual view)', '14 cross-domain rules (extracted from multi-cases)', '94+ skills (Claude Code / Codex workflows)', 'MCP connector (paste into Claude.ai / Cursor)', 'Personal notes + zip export (kb-vault schema)', 'Owns the cross-domain distillation, not raw content']
-    },
-    url: 'https://agent-kb.cooperation.tw'
-  }
-};
-
-/* ---- Modal ---- */
-var currentModalId = null;
-
-function getLang(){
-  return document.documentElement.lang === 'en' ? 'en' : 'zh';
-}
-
-function populateModal(id){
-  var d = projectData[id];
-  if(!d) return;
-  var lang = getLang();
-  document.getElementById('modal-image').src = d.image;
-  document.getElementById('modal-image').alt = d.title[lang];
-  document.getElementById('modal-label').textContent = d.label[lang];
-  document.getElementById('modal-title').textContent = d.title[lang];
-
-  var techList = document.getElementById('modal-tech');
-  techList.innerHTML = '';
-  d.tech[lang].forEach(function(t){
-    var li = document.createElement('li');
-    li.textContent = t;
-    techList.appendChild(li);
-  });
-
-  var actionDiv = document.getElementById('modal-action');
-  if(d.links && d.links.length){
-    actionDiv.innerHTML = d.links.map(function(l){
-      return '<a href="' + l.url + '" class="modal-visit" target="_blank" style="margin-right:.6rem;margin-bottom:.6rem">' +
-        l.label[lang] + ' &rarr;</a>';
-    }).join('');
-  } else if(d.url){
-    actionDiv.innerHTML = '<a href="' + d.url + '" class="modal-visit" target="_blank">' +
-      (lang === 'zh' ? '前往專案 &rarr;' : 'Visit Project &rarr;') + '</a>';
-  } else {
-    actionDiv.innerHTML = '<span class="modal-dev-badge">' +
-      (lang === 'zh' ? '開發中' : 'In Development') + '</span>';
-  }
-}
-
-function openModal(id){
-  if(!projectData[id]) return;
-  currentModalId = id;
-  populateModal(id);
-  document.getElementById('project-modal').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal(e){
-  if(e && e.target && e.target !== document.getElementById('project-modal') && !e.target.classList.contains('modal-close')) return;
-  document.getElementById('project-modal').classList.remove('active');
-  document.body.style.overflow = '';
-  currentModalId = null;
-}
-
-document.addEventListener('keydown', function(e){
-  if(e.key === 'Escape') closeModal();
-});
-
-/* ---- Toast ---- */
-var toastTimer = null;
-function showToast(){
-  var lang = getLang();
-  var msg = lang === 'zh' ? '即將推出，敬請期待' : 'Coming soon, stay tuned';
-  var el = document.getElementById('toast');
-  el.textContent = msg;
-  el.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(function(){ el.classList.remove('show'); }, 2000);
-}
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>AI Cooperation | cooperation.tw | <a href="./blog/">Blog</a> | <a href="mailto:ai@cooperation.tw">聯絡我們</a></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>
+(function(){var els=document.querySelectorAll('.reveal-fx');if(!els.length)return;
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+  els.forEach(function(e){io.observe(e);});})();
 </script>
-</body>
-</html>
+
+
+
+
+</body></html>

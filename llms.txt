@@ -1,28 +1,36 @@
-# AI Cooperation
+# AI Cooperation（cooperation.tw）
 
-> AI Operation Lab — 幫企業與個人建立能與 AI 一起成長的能力。提供 AI 學習環境、AI 工作法課程與組織 AI 進化陪跑服務。
-
-AI Cooperation 致力於打造 AI Operation System，讓企業與個人不只是使用 AI 工具，而是真正學會如何與 AI 共事。我們相信：AI 會越來越便宜，但會用 AI 的組織，永遠稀缺。
-
-## 服務架構
-
-### Layer 1: AI Learning Environment（學習環境層）
-不怕亂用的 AI 練習場。在安全的沙盒環境中自由嘗試 AI，所有操作可回溯、可觀察、可教學。適合想學 AI 但不知從何開始的企業與個人。
-
-### Layer 2: AI Operation Method（方法層）
-AI 工作法教練。不只教 AI 工具，教你如何把工作流程轉譯成 AI 可以參與的形式。透過課程、教練制、工作坊、企業內訓等形式，建立 AI 協作能力。
-
-### Layer 3: AI Evolution Program（進化層）
-組織 AI 化長期陪跑。不是一次性導入，而是建立組織持續進化的機制。AI 使用成熟度評估、流程重構、長期顧問陪跑。
+> 打造人機協作的基礎架構。智慧人人可用，差距在協作的架構——
+> 這裡陳列的每個專案、每門課，都在真實運轉。
 
 ## 專案
 
-- [AI 100 講](https://ai-cooperation.github.io/ai100/): iPAS AI 應用規劃師導向課程，10 模組 x 10 講，每講附中文 Podcast
-- [低碳永續 100 講](https://ai-cooperation.github.io/sustainability-100/): AI 驅動的永續知識系列，涵蓋淨零碳排、ESG、碳交易等 10 大主題
-- [法拍物件地圖](https://ai-cooperation.github.io/foreclosure-map/): 全台法拍屋即時地圖查詢，整合 22 間法院法拍公告
+### 教育課程
+- [AI 100 講](https://ai-cooperation.github.io/ai100/): 十個模組、一百講的 AI 應用課程，把 iPAS AI 應用規劃師的知識體系變成可以每天聽的中文 Podcast
+- [永續 100 講](https://ai-cooperation.github.io/sustainability-100/): 涵蓋淨零碳排、ESG、碳交易十大主題的永續知識系列，AI 驅動的內容生產流程本身就是示範
+- [AI 學習路徑](https://aipath.cooperation.tw): 從零到能動手的 Vibe Coding 三階段路徑，每一階段都以做出真實作品收尾
+- [YOLO 視覺辨識課](https://cooperation.tw/yolo-vision-course/index.html): 用真實場景資料訓練自己的物件辨識模型，從標註到部署完整走一遍
+- [WELL AP 學習站](https://wellap.cooperation.tw/index.html): 考古題解析、題庫練習、講義整合的 WELL AP 認證學習系統
+
+### 知識庫系統
+- [保險業知識庫](https://insurance-kb.cooperation.tw): 覆蓋台日韓港與東南亞的保險業情報系統，每天自動收集、翻譯、結構化，累積成可檢索的市場知識
+- [醫學知識庫](https://hematology-kb.pages.dev): 從醫學文獻自動蒸餾的專科知識系統，給臨床從業者的結構化參考庫
+- [IFRS S2 永續合規知識庫](https://ifrs-kb.cooperation.tw/): 188 份文件、逐條可勾稽的永續揭露差距分析系統，涵蓋 IFRS S1/S2、TWSE 氣候揭露與 GHG Protocol
+- [Agent KB 教學知識庫](https://agent-kb.cooperation.tw): 課堂案例、概念字典、可重用工作流的教學知識庫，學員上課用的同一套系統
+
+### 研究工具
+- [PaperLab 寫論文找方法](https://paperlab.cooperation.tw): 從模糊想法收斂成研究計畫，再交給自動化 pipeline 跑完實驗與初稿的論文生產系統
+
+### AI 基礎設施
+- [FluxGate](https://fluxgate.cooperation.tw/): 建立在 Cloudflare Workers 上的非同步生圖服務，提交即回、輪詢取件
+- [ClassClaw](https://ai100.cooperation.tw/classroom/host): 一支 QR code 就能開始的課堂即時互動系統，即將開源
+
+### 資料應用
+- [法拍物件地圖](https://ai-cooperation.github.io/foreclosure-map/): 整合全台 22 間法院公告的法拍屋即時地圖，公開資料變成可以直接用的查詢工具
+- [永續決策平台](https://ai-cooperation.github.io/ai-sustainability-platform/): 把永續數據整理成可以支撐決策的視覺化平台
 
 ## 聯絡
 
-- Email: aicooperation.tw@gmail.com
+- Email: ai@cooperation.tw
 - GitHub: https://github.com/ai-cooperation
 - 網站: https://cooperation.tw

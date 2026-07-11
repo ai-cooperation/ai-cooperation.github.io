@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" xml:lang="zh-TW"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>運行中的專案 – AI Cooperation</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-4cc051bc1477f4e29d838bde52c39a9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "沒有結果",
+    "search-matching-documents-text": "符合的文件",
+    "search-copy-link-title": "複製搜尋連結",
+    "search-hide-matches-text": "隱藏其他符合的結果",
+    "search-more-match-text": "更多符合結果",
+    "search-more-matches-text": "更多符合結果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "送出",
+    "search-label": "搜尋"
+  }
+}</script>
+<script>document.documentElement.classList.add('js');</script>
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#0c0f14">
+<!-- Google tag (gtag.js) — cooperation.tw total -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-975S6707DM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-975S6707DM');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "w905wid7rj");
+</script>
+
+
+<meta property="og:title" content="運行中的專案 – AI Cooperation">
+<meta property="og:description" content="打造人機協作的基礎架構">
+<meta property="og:image" content="https://cooperation.tw/projects/assets/og-image.png">
+<meta property="og:site_name" content="AI Cooperation">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../assets/logo.svg" alt="" class="navbar-logo light-content">
+    <img src="../assets/logo.svg" alt="" class="navbar-logo dark-content">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="搜尋"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="切換導航列" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../projects/index.html" aria-current="page"> 
+<span class="menu-text">專案</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../courses/index.html"> 
+<span class="menu-text">課程</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">關於</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:ai@cooperation.tw"> <i class="bi bi-envelope" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ai-cooperation"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">運行中的專案</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>站上陳列的每一件，都是每天在運轉的工作系統。</p>
+<section id="教育課程" class="level2">
+<h2 class="anchored" data-anchor-id="教育課程">教育課程</h2>
+<p>從理解機制開始的 AI 課程，不需要程式背景，但需要理解每一步的邏輯。</p>
+<div class="pgrid">
+<a class="pcard reveal-fx" href="../projects/ai100.html"><img src="../assets/images/proj-ai100.png" alt="AI 100 講" loading="lazy"><div class="pcard-body"><div class="pcard-head"><h3 class="anchored">AI 100 講</h3><span class="badge badge-live">運行中</span></div><p class="pcard-tagline">十個模組、一百講的 AI 應用課程，把 iPAS AI 應用規劃師的知識體系變成可以每天聽的中文 Podcast</p><span class="pcard-cta">進入課程</span></div></a>
+<a class="pcard reveal-fx" href="../projects/sustainability-100.html"><img src="../assets/images/proj-s100.png" alt="永續 100 講" loading="lazy"><div class="pcard-body"><div class="pcard-head"><h3 class="anchored">永續 100 講</h3><span class="badge badge-live">運行中</span></div><p class="pcard-tagline">涵蓋淨零碳排、ESG、碳交易十大主題的永續知識系列，AI 驅動的內容生產流程本身就是示範</p><span class="pcard-cta">進入課程</span></div></a>
+<a class="pcard reveal-fx" href="../projects/aipath.html"><img src="../assets/images/proj-aipath.png" alt="AI 學習路徑" loading="lazy"><div class="pcard-body"><div class="pcard-head"><h3 class="anchored">AI 學習路徑</h3><span class="badge badge-live">運行中</span></div><p class="pcard-tagline">從零到能動手的 Vibe Coding 三階段路徑，每一階段都以做出真實作品收尾</p><span class="pcard-cta">查看路徑</span></div></a>
+<a class="pcard reveal-fx" href="../projects/yolo-vision.html"><img src="../assets/images/proj-yolo.jpg" alt="YOLO 視覺辨識課" loading="lazy"><div class="pcard-body"><div class="pcard-head"><h3 class="anchored">YOLO 視覺辨識課</h3><span class="badge badge-live">運行中</span></div><p class="pcard-tagline">用真實場景資料訓練自己的物件辨識模型，從標註到部署完整走一遍</p><span class="pcard-cta">進入課程</span></div></a>
+<a class="pcard reveal-fx" href="../projects/wellap.html"><img src="../assets/images/proj-wellap.jpg" alt="WELL AP 學習站" loading="lazy"><div class="pcard-body"><div class="pcard-head"><h3 class="anchored">WELL AP 學習站</h3><span class="badge badge-live">運行中</span></div><p class="pcard-tagline">考古題解析、題庫練習、講義整合的 WELL AP 認證學習系統</p><span class="pcard-cta">進入學習站</span></div></a>
+</div>
+</section>
+<section id="知識庫系統" class="level2">
+<h2 class="anchored" data-anchor-id="知識庫系統">知識庫系統</h2>
+<p>讓領域知識自己被找到——每天自動更新、可追溯來源的知識系統。</p>
+<div class="pgrid">
+<a class="pcard reveal-fx" href="../projects/insurance-kb.html"><img src="../assets/images/proj-kb.png" alt="保險業知識庫" loading="lazy"><div class="pcard-body"><div class="pcard-head"><h3 class="anchored">保險業知識庫</h3><span class="badge badge-live">運行中</span></div><p class="pcard-tagline">覆蓋台日韓港與東南亞的保險業情報系統，每天自動收集、翻譯、結構化，累積成可檢索的市場知識</p><span class="pcard-cta">進入知識庫</span></div></a>
+<a class="pcard reveal-fx" href="../projects/ifrs-s2.html"><img src="../assets/images/proj-ifrs.jpg" alt="IFRS S2 永續合規知識庫" loading="lazy"><div class="pcard-body"><div class="pcard-head"><h3 class="anchored">IFRS S2 永續合規知識庫</h3><span class="badge badge-live">運行中</span></div><p class="pcard-tagline">188 份文件、逐條可勾稽的永續揭露差距分析系統，涵蓋 IFRS S1/S2、TWSE 氣候揭露與 GHG Protocol</p><span class="pcard-cta">進入系統</span></div></a>
+<a class="pcard reveal-fx" href="../projects/medical-kb.html"><img src="../assets/images/proj-medical.jpg" alt="醫學知識庫" loading="lazy"><div class="pcard-body"><div class="pcard-head"><h3 class="anchored">醫學知識庫</h3><span class="badge badge-live">運行中</span></div><p class="pcard-tagline">從醫學文獻自動蒸餾的專科知識系統，給臨床從業者的結構化參考庫</p><span class="pcard-cta">進入知識庫</span></div></a>
+<a class="pcard reveal-fx" href="../projects/agent-kb.html"><img src="../assets/images/proj-agent-kb.png" alt="Agent KB 教學知識庫" loading="lazy"><div class="pcard-body"><div class="pcard-head"><h3 class="anchored">Agent KB 教學知識庫</h3><span class="badge badge-live">運行中</span></div><p class="pcard-tagline">課堂案例、概念字典、可重用工作流的教學知識庫，學員上課用的同一套系統</p><span class="pcard-cta">進入知識庫</span></div></a>
+</div>
+</section>
+<section id="研究工具" class="level2">
+<h2 class="anchored" data-anchor-id="研究工具">研究工具</h2>
+<p>把研究流程轉譯成 AI 可以參與的形式，從題目發想到論文投稿。</p>
+<div class="pgrid">
+<a class="pcard reveal-fx" href="../projects/paperlab.html"><img src="../assets/images/proj-paperlab.png" alt="PaperLab 寫論文找方法" loading="lazy"><div class="pcard-body"><div class="pcard-head"><h3 class="anchored">PaperLab 寫論文找方法</h3><span class="badge badge-live">運行中</span></div><p class="pcard-tagline">從模糊想法收斂成研究計畫，再交給自動化 pipeline 跑完實驗與初稿的論文生產系統</p><span class="pcard-cta">進入 PaperLab</span></div></a>
+<div class="pcard pcard-coming reveal-fx"><img src="../assets/images/proj-coming.jpg" alt="Living World Model" loading="lazy"><div class="pcard-body"><div class="pcard-head"><h3 class="anchored">Living World Model</h3><span class="badge badge-coming">建置中</span></div><p class="pcard-tagline">研究型專案，建置中</p></div></div>
+</div>
+</section>
+<section id="ai-基礎設施" class="level2">
+<h2 class="anchored" data-anchor-id="ai-基礎設施">AI 基礎設施</h2>
+<p>支撐所有專案運轉的底層服務，也是課堂上示範的真實系統。</p>
+<div class="pgrid">
+<a class="pcard reveal-fx" href="../projects/fluxgate.html"><img src="../assets/images/proj-fluxgate.jpg" alt="FluxGate" loading="lazy"><div class="pcard-body"><div class="pcard-head"><h3 class="anchored">FluxGate</h3><span class="badge badge-live">運行中</span></div><p class="pcard-tagline">建立在 Cloudflare Workers 上的非同步生圖服務，提交即回、輪詢取件</p><span class="pcard-cta">查看服務</span></div></a>
+<a class="pcard reveal-fx" href="../projects/classclaw.html"><img src="../assets/images/proj-classclaw.jpg" alt="ClassClaw" loading="lazy"><div class="pcard-body"><div class="pcard-head"><h3 class="anchored">ClassClaw</h3><span class="badge badge-live">運行中</span></div><p class="pcard-tagline">一支 QR code 就能開始的課堂即時互動系統，即將開源</p><span class="pcard-cta">查看系統</span></div></a>
+<div class="pcard pcard-coming reveal-fx"><img src="../assets/images/proj-coming.jpg" alt="會議紀錄工作室" loading="lazy"><div class="pcard-body"><div class="pcard-head"><h3 class="anchored">會議紀錄工作室</h3><span class="badge badge-coming">建置中</span></div><p class="pcard-tagline">從錄音到結構化會議紀錄的自動化流程，建置中</p></div></div>
+</div>
+</section>
+<section id="資料應用" class="level2">
+<h2 class="anchored" data-anchor-id="資料應用">資料應用</h2>
+<p>把公開資料變成可以直接使用的工具。</p>
+<div class="pgrid">
+<a class="pcard reveal-fx" href="../projects/foreclosure-map.html"><img src="../assets/images/proj-foreclosure.png" alt="法拍物件地圖" loading="lazy"><div class="pcard-body"><div class="pcard-head"><h3 class="anchored">法拍物件地圖</h3><span class="badge badge-live">運行中</span></div><p class="pcard-tagline">整合全台 22 間法院公告的法拍屋即時地圖，公開資料變成可以直接用的查詢工具</p><span class="pcard-cta">開啟地圖</span></div></a>
+<a class="pcard reveal-fx" href="../projects/sustainability-platform.html"><img src="../assets/images/proj-sustainability.png" alt="永續決策平台" loading="lazy"><div class="pcard-body"><div class="pcard-head"><h3 class="anchored">永續決策平台</h3><span class="badge badge-live">運行中</span></div><p class="pcard-tagline">把永續數據整理成可以支撐決策的視覺化平台</p><span class="pcard-cta">進入平台</span></div></a>
+<div class="pcard pcard-coming reveal-fx"><img src="../assets/images/proj-coming.jpg" alt="電力資料應用" loading="lazy"><div class="pcard-body"><div class="pcard-head"><h3 class="anchored">電力資料應用</h3><span class="badge badge-coming">建置中</span></div><p class="pcard-tagline">台電公開資料的分析與應用，建置中</p></div></div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "已複製");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "已複製");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/cooperation\.tw");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>AI Cooperation | cooperation.tw | <a href="../blog/">Blog</a> | <a href="mailto:ai@cooperation.tw">聯絡我們</a></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>
+(function(){var els=document.querySelectorAll('.reveal-fx');if(!els.length)return;
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+  els.forEach(function(e){io.observe(e);});})();
+</script>
+
+
+
+
+</body></html>
