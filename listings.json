@@ -1,12 +1,5 @@
 [
   {
-    "listing": "/zh/blog/index.html",
-    "items": [
-      "/zh/blog/posts/roadmap-template-neon-glow/index.html",
-      "/zh/blog/posts/what-is-ai-operation/index.html"
-    ]
-  },
-  {
     "listing": "/blog/index.html",
     "items": [
       "/blog/posts/roadmap-template-neon-glow/index.html",
