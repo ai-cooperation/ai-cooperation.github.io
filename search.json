@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "courses/index.html",
-    "href": "courses/index.html",
-    "title": "課程",
-    "section": "",
-    "text": "不需要程式背景，但需要理解每一步的機制邏輯。每一門課教的方法，都來自站上真實運轉的系統。\n\nAI 100 講\n10 模組 × 10 講入門線上自學iPAS AI 應用規劃師導向\n把 AI 應用規劃師的知識體系拆成一百講，每講附中文 Podcast——通勤時聽完一講，回家對照教材動手。\n進入課程\n\n\n\n永續 100 講\n10 大主題入門線上自學iPAS 淨零碳規劃師導向\n淨零碳排、ESG、碳交易的系統性知識。課程內容由 AI 驅動的生產流程製作——這條流程本身就是人機協作的示範。\n進入課程\n\n\n\nAI 學習路徑（Vibe Coding）\n三階段入門到進階實體工作坊\n從會用 AI 到能與 AI 協作開發。每一階段以做出真實作品收尾——作品上線，才算學會。\n查看路徑\n\n\n\nYOLO 視覺辨識\n實作課進階\n用真實場景資料訓練自己的物件辨識模型，從標註、訓練到部署完整走一遍。\n課程介紹\n\n\n\n企業內訓\n客製半日到多日\n把貴公司的工作流程轉譯成 AI 可以參與的形式。課程設計從實際業務場景出發，不教通用工具操作。\n課程洽詢"
-  },
-  {
     "objectID": "blog/index.html",
     "href": "blog/index.html",
     "title": "Blog",
@@ -70,27 +63,6 @@
     "text": "Key Takeaway\nNative OOXML effects (a:glow, a:outerShdw) are powerful but renderer-dependent. If your output needs to look consistent across PowerPoint, LibreOffice, and Google Slides, use bordered hollow shapes rather than solid-fill shapes as glow carriers. The border gives renderers a clear edge to apply the glow effect to.\n\nView the Demo | Download PPTX | Source Code"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "關於",
-    "section": "",
-    "text": "AI Cooperation 打造人機協作的基礎架構。\n我們相信：當 AI 變得人人可用，能力的差距不在智慧，在協作的架構——知識怎麼累積、流程怎麼串接、產出怎麼把關。這個站陳列的每個專案、每門課，都是每天在真實運轉的工作系統；課堂上教的方法，就是這些系統的建造方法。"
-  },
-  {
-    "objectID": "about.html#這個站有什麼",
-    "href": "about.html#這個站有什麼",
-    "title": "關於",
-    "section": "這個站有什麼",
-    "text": "這個站有什麼\n\n運行中的專案——教育課程、知識庫系統、研究工具、AI 基礎設施、資料應用五類，持續擴增\n課程——不需要程式背景，但需要理解每一步的機制邏輯\nBlog——工作方法與系統建造的紀錄"
-  },
-  {
-    "objectID": "about.html#聯絡我們",
-    "href": "about.html#聯絡我們",
-    "title": "關於",
-    "section": "聯絡我們",
-    "text": "聯絡我們\n\nEmail：ai@cooperation.tw\nGitHub：github.com/ai-cooperation\n\n課程洽詢、企業內訓、專案合作，來信皆可。"
-  },
-  {
     "objectID": "projects/index.html",
     "href": "projects/index.html",
     "title": "運行中的專案",
@@ -131,6 +103,34 @@
     "title": "運行中的專案",
     "section": "資料應用",
     "text": "資料應用\n把公開資料變成可以直接使用的工具。\n\n法拍物件地圖運行中整合全台 22 間法院公告的法拍屋即時地圖，公開資料變成可以直接用的查詢工具開啟地圖\n永續決策平台運行中把永續數據整理成可以支撐決策的視覺化平台進入平台\n電力資料應用建置中台電公開資料的分析與應用，建置中"
+  },
+  {
+    "objectID": "courses/index.html",
+    "href": "courses/index.html",
+    "title": "課程",
+    "section": "",
+    "text": "不需要程式背景，但需要理解每一步的機制邏輯。每一門課教的方法，都來自站上真實運轉的系統。\n\nAI 100 講\n10 模組 × 10 講入門線上自學iPAS AI 應用規劃師導向\n把 AI 應用規劃師的知識體系拆成一百講，每講附中文 Podcast——通勤時聽完一講，回家對照教材動手。\n進入課程\n\n\n\n永續 100 講\n10 大主題入門線上自學iPAS 淨零碳規劃師導向\n淨零碳排、ESG、碳交易的系統性知識。課程內容由 AI 驅動的生產流程製作——這條流程本身就是人機協作的示範。\n進入課程\n\n\n\nAI 學習路徑（Vibe Coding）\n三階段入門到進階實體工作坊\n從會用 AI 到能與 AI 協作開發。每一階段以做出真實作品收尾——作品上線，才算學會。\n查看路徑\n\n\n\nYOLO 視覺辨識\n實作課進階\n用真實場景資料訓練自己的物件辨識模型，從標註、訓練到部署完整走一遍。\n課程介紹\n\n\n\n企業內訓\n客製半日到多日\n把貴公司的工作流程轉譯成 AI 可以參與的形式。課程設計從實際業務場景出發，不教通用工具操作。\n課程洽詢"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "關於",
+    "section": "",
+    "text": "AI Cooperation 打造人機協作的基礎架構。\n我們相信：當 AI 變得人人可用，能力的差距不在智慧，在協作的架構——知識怎麼累積、流程怎麼串接、產出怎麼把關。這個站陳列的每個專案、每門課，都是每天在真實運轉的工作系統；課堂上教的方法，就是這些系統的建造方法。"
+  },
+  {
+    "objectID": "about.html#這個站有什麼",
+    "href": "about.html#這個站有什麼",
+    "title": "關於",
+    "section": "這個站有什麼",
+    "text": "這個站有什麼\n\n運行中的專案——教育課程、知識庫系統、研究工具、AI 基礎設施、資料應用五類，持續擴增\n課程——不需要程式背景，但需要理解每一步的機制邏輯\nBlog——工作方法與系統建造的紀錄"
+  },
+  {
+    "objectID": "about.html#聯絡我們",
+    "href": "about.html#聯絡我們",
+    "title": "關於",
+    "section": "聯絡我們",
+    "text": "聯絡我們\n\nEmail：ai@cooperation.tw\nGitHub：github.com/ai-cooperation\n\n課程洽詢、企業內訓、專案合作，來信皆可。"
   },
   {
     "objectID": "blog/posts/what-is-ai-operation/index.html",
