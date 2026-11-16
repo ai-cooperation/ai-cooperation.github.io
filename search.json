@@ -102,7 +102,7 @@
     "href": "projects/index.html#ai-基礎設施",
     "title": "運行中的專案",
     "section": "AI 基礎設施",
-    "text": "AI 基礎設施\n支撐所有專案運轉的底層服務，也是課堂上示範的真實系統。\n\nFluxGate運行中建立在 Cloudflare Workers 上的非同步生圖服務，提交即回、輪詢取件查看服務\nSmallGreen Cloud運行中讓每個人都能擁有自己的雲端服務——AI 協作部署的驗收與移除契約看公開規格\nClassClaw運行中一支 QR code 就能開始的課堂即時互動系統，即將開源查看系統\n會議紀錄工作室建置中從錄音到結構化會議紀錄的自動化流程，建置中"
+    "text": "AI 基礎設施\n支撐所有專案運轉的底層服務，也是課堂上示範的真實系統。\n\nFluxGate運行中建立在 Cloudflare Workers 上的非同步生圖服務，提交即回、輪詢取件查看服務\nSmallGreen Cloud運行中讓每個人都能擁有自己的雲端服務——14 個可跑在自己帳號的開源小服務目錄逛服務目錄\nClassClaw運行中一支 QR code 就能開始的課堂即時互動系統，即將開源查看系統\n會議紀錄工作室建置中從錄音到結構化會議紀錄的自動化流程，建置中"
   },
   {
     "objectID": "projects/index.html#資料應用",
